@@ -1,0 +1,28 @@
+<div class="col-sm-3 col-sm-3-new width20per">
+<?php echo $this->partial('layout/sidebar-events') ?>
+</div>
+
+<div class="col-sm-9 width80per">
+<?php 
+$imgpath = (empty($events->image))?"/images/new-big.jpg":$events->image;
+
+?>
+<h2 class="heading">Events</h2>
+<div class="newsfull">
+ <img src="<?php echo $this->basePath().$imgpath ?>" class=" img-responsive pull-left" style="width:200px; max-height:200px; float:left;" />
+<h3><?=$events->event_name?></h3>
+<p><?=$events->event_desc?></p>
+
+<div class="status">
+<ul>
+<li>Posted By : <?=$events->username?></li>
+<li>Posted Date : <?=date("l d,Y",strtotime($events->event_date));?></li>
+<!-- <li id="flip">Add Comment</li>
+<li><a href="#">Share</a></li> -->
+</ul>
+</div>
+
+<div class="clearfix"></div>
+</div>
+</div>
+  

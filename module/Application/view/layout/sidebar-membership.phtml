@@ -1,0 +1,186 @@
+<div class="panel-group" id="accordion">
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" href="<?php echo $this->basePath()?>/matrimonial">
+        <span class="pull-right glyphicon"></span>Matrimonial</a>
+      </h4>
+    </div>
+    
+  </div>
+
+
+
+ <?php 
+
+/*
+
+ // foreach($filters_data["country"]["filter_query"]["country"] as $grdata){
+ //          echo $grdata->id;
+ //        } 
+
+
+ // print_r($filters_data["country"][0]);
+
+  // foreach($filters_data["country"] as $k=> $v)
+  //           {
+               
+  //               print_r($v[1]);
+  //               // echo "<option value=".$GrData->id.">".$GrData->country_name."</option>";
+  //           }
+
+ */?>
+      <ul class="newulclass">
+  <li>
+      <select class="form-control" id="filter_country" ftype="country">
+        <option>---Select---country---</option>
+        <?php 
+          foreach($filters_data["country"] as $GrData)
+            {
+                echo "<option value=".$GrData->id.">".$GrData->country_name."</option>";
+            }
+        ?>
+      </select>
+  </li>
+</ul>
+
+
+      <ul class="newulclass">
+<li><select class="form-control" ftype="state">
+    <option>---Select---state---</option>
+        <?php 
+          foreach($filters_data["state"] as $GrData)
+            {
+                echo "<option value=".$GrData->id.">".$GrData->state_name."</option>";
+            }
+        ?>
+</select></li>
+</ul>
+     
+
+  
+      <ul class="newulclass">
+        <li>
+          <?php 
+           // echo MembershipController::membercountAction();
+          // print_r($this);
+          ?>
+  <select class="form-control" ftype="city" >
+       <option>---Select---city---</option>   
+    <?php 
+          foreach($filters_data["city"] as $GrData)
+            {
+                echo "<option value=".$GrData->id.">".$GrData->city_name."</option>";
+            }
+        ?>
+        
+  </select>
+</li>
+</ul>
+     
+ 
+      <ul class="newulclass">
+      <li><input type="text" class="form-control" placeholder="---Pin---Code---" ftype="zip_pin_code"></li>
+
+      </ul>
+     
+ 
+      <ul class="newulclass">
+<li><input type="text" class="form-control" placeholder="---Name---" ftype="full_name"></li>
+
+</ul>
+      
+<ul class="newulclass">
+<li><input type="text" class="form-control" placeholder="---Email---" ftype="office_email"></li>
+
+</ul>
+<ul class="newulclass">
+<li>
+<div class="slider">
+      <b>Age:</b><br>
+      <span class="amount" id="age-amount">0</span>
+      <div class="slider-range" ftype="age"></div> 
+ </div>
+ </li>
+
+</ul>
+
+<ul class="newulclass">
+<li>
+<div class="slider">
+      <b>Annual Income :</b><br>
+      <span class="amount" id="income-amount">0</span>
+      <div class="slider-range" ftype="annual_income"></div> 
+ </div>
+</li>
+
+</ul>
+
+ <ul class="newulclass">
+        <li>
+  <select class="form-control" ftype="profession" >
+       <option>---Select---Profession---</option>   
+    <?php 
+          foreach($filters_data["profession"] as $GrData)
+            {
+                echo "<option value=".$GrData->id.">".$GrData->profession."</option>";
+            }
+    ?>
+  </select>
+</li>
+</ul>
+   
+
+<ul class="newulclass">
+        <li>
+  <select class="form-control" ftype="education_field" >
+       <option>---Select---Education---</option>   
+    <?php 
+          foreach($filters_data["education_level"] as $GrData)
+            {
+                echo "<option value=".$GrData->id.">".$GrData->education_field."</option>";
+            }
+        ?>
+        
+  </select>
+</li>
+</ul>
+
+      <ul class="newulclass">
+        <li>
+  <select class="form-control" ftype="designation" >
+       <option>---Select---Designation---</option>   
+    <?php 
+          foreach($filters_data["designation"] as $GrData)
+            {
+                echo "<option value=".$GrData->id.">".$GrData->designation."</option>";
+            }
+        ?>
+        
+  </select>
+</li>
+</ul>
+<ul class="newulclass">
+        <li>
+  <select class="form-control" ftype="marital_status" >
+       <option>---Marital---Status---</option>   
+       <option>Single</option>   
+       <option>Married</option>   
+       <option>Divorced</option>   
+       <option>Widowed</option>   
+       <option>Separated</option>   
+  </select>
+</li>
+</ul>
+     
+      
+
+    
+       
+      
+   </div>
+
+  <?php  echo $this->partial('layout/sidebar-slider')   ?>
+
+ 

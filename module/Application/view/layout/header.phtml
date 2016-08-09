@@ -1,0 +1,197 @@
+<?php
+$session = new Zend\Session\Container('user');
+// print_r($session);
+// echo $session->offsetGet('email');
+?>
+<div class="col-xs-3 width20per" align="center">
+    <a href="<?php echo $this->url('home') ?>">
+        <img src="<?php echo $this->basePath('images/rsrpk_logo.png') ?>" class="img-responsive" style="height:90px;" />
+    </a>
+</div>
+<div class="col-xs-6 width60per">
+
+    <center>
+        <ul class="rslides">
+            <li><img src="<?php echo $this->basePath('images/rustagi_ad.jpg') ?>" class="img-responsive" style="height:90px;"/></li>
+            <li><img src="<?php echo $this->basePath('images/rustagi_ad.jpg') ?>" class="img-responsive" style="height:90px;"/></li>
+            <li><img src="<?php echo $this->basePath('images/rustagi_ad.jpg') ?>" class="img-responsive" style="height:90px;"/></li>
+        </ul>
+    </center>
+
+
+</div>
+<div class="col-xs-3 width20per">
+    <ul class="nav-top">
+        <li>
+
+
+            <div class="popover-markup"> 
+
+                <?php if ($session->offsetGet('email') == "") { ?>
+                    <span><?php echo $this->translate('Already Member') ?></span>
+                    <a href="#" class="trigger" data-placement="bottom"><?php echo $this->translate('Login') ?></a>
+                <?php } else { ?>
+                    <?php echo $session->offsetGet('full_name') ?><span></span>
+                    <a href="<?php echo $this->basePath() ?>/account/logout"><?php echo $this->translate('Logout') ?></a>
+                <?php } ?>
+
+
+
+
+                <div class="head hide"><?php echo $this->translate('Enter Login Details') ?></div>
+
+                <div class="content hide"  >
+                    <div   id="chgpass" style="display:none;">
+                        <h4 class="header red lighter bigger">
+                            <i class="ace-icon fa fa-key"></i>
+                            Retrieve Password
+                        </h4>
+
+                        <div class="space-6"></div>
+                        <p>
+                            Create your new password 
+                        </p>
+                        <form method="post" action="#" id="chgpassform" onsubmit="return confirmotp(this.id, '<?= $this->serverUrl() . $this->url('application/default', array('controller' => 'user', 'action' => 'chgpass'));
+                ?>', chgpassresults);">
+                            Enter new password <input type="text" name="pass"><br>
+                            Retype new password  <input type="text" name="rpass"><br>
+                            <input type="hidden" name="userid"><br>
+                            <input type="submit" value="submit" name="sendotp">
+                        </form>	
+                    </div>
+                    <div   id="otpform" style="display:none;">
+                        <h4 class="header red lighter bigger">
+                            <i class="ace-icon fa fa-key"></i>
+                            Retrieve Password
+                        </h4>
+
+                        <div class="space-6"></div>
+                        <p>
+                            Enter otp to receive instructions
+                        </p>
+                        <form method="post" action="#" id="formotp" onsubmit="return confirmotp(this.id, '<?= $this->serverUrl() . $this->url('application/default', array('controller' => 'user', 'action' => 'confirmotp'));
+                ?>', confirmotpresults, 0);">
+                            Enter otp <input type="number" name="otp"><br>
+                            <input type="hidden" name="time"><br>
+                            <input type="hidden" name="code"><br>
+                            <input type="hidden" name="number"><br>
+                            <input type="submit" value="submit" name="sendotp">
+                        </form>	
+                    </div>
+                    <div id="forgotform" style="position:relative;top:0;left:0;height:100%;width:100%;display:none;">
+                        <div id="mobileform">
+                            <h4 class="header red lighter bigger">
+                                <i class="ace-icon fa fa-key"></i>
+                                Retrieve Password
+                            </h4>
+
+                            <div class="space-6"></div>
+                            <p>
+                                Enter your Mobile Number to receive instructions
+                            </p>
+
+                            <form method="post" action="#" id="forgotform" onsubmit="return validatenum(this.id, '<?= $this->serverUrl() . $this->url('application/default', array('controller' => 'user', 'action' => 'sendotp'));
+                ?>', forgotresponse);">
+                                <div class="form-group">
+                                    <label class="block clearfix">
+                                        <span class="block input-icon input-icon-right">
+                                            <input type="number" class="form-control" placeholder="Number"/>
+                                            <span class="showerror"></span>
+                                        </span>
+                                    </label>
+
+                                    <div class="clearfix">
+                                        <button type="submit" class="width-35 pull-right btn btn-sm btn-danger">
+                                            <i class="ace-icon fa fa-lightbulb-o"></i>
+                                            <span class="bigger-110">Send Me!</span>
+                                        </button>
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div> 
+                    </div>
+
+
+                    <div id="frontform">
+                        <form id="loginForm" name="loginForm" action="<?php echo $this->basePath() ?>/user/login" method="POST">
+
+                            <div class="form-group">
+                                <label for="email"><?php echo $this->translate('Email OR Mobile') ?></label>
+                                <input type="text" name="login_email" id="login_email" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password"><?php echo $this->translate('Password') ?></label>
+                                <input type="password" name="login_password" id="login_password" class="form-control" />
+                            </div> 
+
+                            <div class="form-group">
+                                <input type="checkbox" name="rember" /><label><em><?php echo $this->translate('Remember me') ?></em></label>
+                            </div>
+
+
+                            <div class="form-group">
+                                <button type="submit" name="login" id="login" class="btn btn-info btn-block"><?php echo $this->translate('Sign In') ?></button>
+                            </div>
+
+                        </form>
+
+
+
+                        <div class="form-group">
+                            <a href="javascript:void(0);" id="forgotlink" onclick="showform()" class="btn btn-default"><?php echo $this->translate('Forgot your password?') ?></a>
+                        </div>
+
+                        <div class="form-group text-center"><?php echo $this->translate('OR') ?></div>
+
+                        <div class="form-group"><?php echo $this->translate('New account?') ?>
+                            <a class="btn btn-info btn-block" href="<?php echo $this->basePath() ?>/user/signup"><?php echo $this->translate('Signup') ?></a>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+
+            <?php if ($session->offsetGet('email') == "") { ?>
+                <span><?php echo $this->translate('Become Member') ?></span>
+                <a href="<?php echo $this->basePath() ?>/user/signup"><?php echo $this->translate('Signup') ?></a>
+            <?php } else { ?>
+                <span><?php echo $this->translate('My Profile') ?></span>
+                <a href="<?php echo $this->basePath() ?>/account/memberbasic"><?php echo $this->translate('Profile') ?></a>	
+            <?php } ?>
+        </li>
+
+        <div class="form-group">
+
+            <!-- Begin TranslateThis Button -->
+
+            <!--<div id="translate-this"><a style="width:180px;height:18px;display:block;" class="translate-this-button" href="https://www.translatecompany.com/translate-this/">Translate Website</a></div>
+            
+            <script type="text/javascript" src="//x.translateth.is/translate-this.js"></script><script type="text/javascript">TranslateThis();</script>-->
+
+            <div id="google_translate_element"></div><script type="text/javascript">
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'af,hi,ko,ku', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false, multilanguagePage: true}, 'google_translate_element');
+                }
+            </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+            <!-- End TranslateThis Button -->
+
+
+            <!--<div id="google_translate_element">
+               <div style="" dir="ltr" class="skiptranslate goog-te-gadget">
+               <div class="goog-te-gadget-simple" style="white-space: nowrap;" id=":0.targetLanguage">
+             
+               </div></div></div>-->
+
+        </div>
+
+
+    </ul>
+
+</div>

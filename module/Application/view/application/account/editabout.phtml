@@ -1,0 +1,86 @@
+<div class="col-sm-3 col-sm-3-new">
+<?php echo $this->partial('layout/sidebar') ?>
+</div>
+
+
+<div class="col-sm-9">
+
+<?php include('main_info.phtml'); ?>
+
+<div class="col-sm-6" style="margin-top:22px; float:right; text-align:right;">
+<p style="text-align:right;">Connected  9 Months ago</p>
+</div>
+
+<div class="clearfix"></div>
+<ul class="nav nav-pills">		
+
+<li class="active"><a href="#"><?php echo $this->translate('About') ?></a></li> 
+<li><a href="<?php echo $this->basePath()?>/account/memberbasic"><?php echo $this->translate('Personal Details') ?></a></li>
+<li><a href="<?php echo $this->basePath()?>/account/editeducation"><?php echo $this->translate('Education') ?></a></li> 
+<li><a href="<?php echo $this->basePath()?>/account/editcareer"><?php echo $this->translate('Profession') ?></a></li> 
+<li><a href="<?php echo $this->basePath()?>/account/editfamily"><?php echo $this->translate('Family Details') ?></a></li> 
+<!--<li><a href="<?php echo $this->basePath()?>/account/editmatrimoni"><?php echo $this->translate('Marital Details') ?></a></li>-->
+
+<li><a href="<?php echo $this->basePath()?>/account/post"><?php echo $this->translate('Post') ?></a></li>
+<li><a href="<?php echo $this->basePath()?>/account/mygallery"><?php echo $this->translate('Gallery') ?></a></li>
+  </ul>
+ 
+					
+	<div class="tab-content">	
+		<div id="about" class="tab-pane fade in active" >
+		<table>
+		<tr>
+		<td>
+		<div class="col-sm-4" style="width:100%;">
+		<form method="POST" action="" name="edit_aboutForm" id="edit_aboutForm">
+			<fieldset class="form-group">
+			<label for="About Yourself"><?php echo $this->translate('About Yourself') ?></label>
+			<textarea class="form-control" name="about_Yourself" id="about_Yourself" cols="50" rows="5"><?php if($this->my_info){foreach($this->my_info as $data);echo ucfirst($data['about_me']);}?></textarea>
+			</fieldset>
+			<fieldset class="form-group">
+			<input type="submit" name="about_meSave" value="Save" class="btn btn-lg btn-default">
+			<input type="submit" name="about_meSave" value="Save & Next" class="btn btn-lg btn-default">
+			</fieldset>
+		</form>
+		</div>
+</td>
+		</tr>
+	</table>
+		</div>
+
+	</div>
+</div>
+
+<script>
+$( document ).ready(function() {
+   $("#edit_aboutForm").validate({
+			rules: { 
+					about_Yourself: 
+						{
+						required: true,
+						minlength:50,
+						maxlength:350
+						}
+			       },
+			messages: {                              
+                  	about_Yourself:{
+						required:"Please write something about you"
+					}			
+			    }
+		     }); 
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

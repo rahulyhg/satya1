@@ -1,0 +1,135 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+<div class="row">
+  <div class="col-xs-12"> 
+    <!-- PAGE CONTENT BEGINS -->
+     
+    <h2><?=$Info->event_name?></h2>
+    <div class="row">
+      <div class="col-xs-12">
+        <p class="pull-left newsimg">
+
+          <img src="<?=$this->basepath().$Info->image?>" width="127"  height="126" alt=""></p>
+          <p style="padding-left:20px"><?=$Info->event_desc?> </p>
+         
+          
+         
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-lg-12 ">
+      <div class="row">
+    
+      
+      
+      
+      
+      
+      
+        <div class="col-lg-2 profile-picture" >
+        
+        
+        
+        <img src="<?=$this->basepath().$Info->sponser_photo?>" alt="Alex's Avatar" class="editable img-responsive editable-click " id="avatar"></img>
+        
+        <div class="widget-body">
+        <div class="widget-main">
+          <dl id="dt-list-1">
+            <dt><?=$Info->sponser_name?></dt>
+            <dd>Mobile No:<?=$Info->sponser_contact?></dd>
+            
+          
+                          
+          </dl>
+        </div>
+      </div>
+        
+        
+        
+        </div>
+        
+        
+        
+        <div class="col-lg-2 profile-picture"  style="margin-left:10px;" >
+        <img src="<?=$this->basepath().$Info->organiser_photo?>"  alt="Alex's Avatar" class="editable img-responsive editable-click " id="avatar"></img>
+        
+        <div class="widget-body">
+        <div class="widget-main">
+          <dl id="dt-list-1">
+            <dt><?=$Info->event_organiser?></dt>
+             <dd>Mobile No:<?=$Info->organiser_contact?></dd>
+           
+          
+                          
+          </dl>
+        </div>
+      </div>
+        
+        
+        
+        </div>
+        
+        
+        
+        
+        
+        <div class="col-lg-2 profile-picture" style="margin-left:10px;"  >
+  
+        
+         
+            <strong> <img width="38" height="36"  alt="" src="assets/images/rustagi-logo.png"><span style="margin-left:4px;">RUSTAGI SAMAJ</span></strong>
+            <address>
+                <strong>Address</strong><br>
+                <?=$Info->venue?><br>
+              
+                <abbr title="Phone">
+                 
+            </address>
+          <!--  <address>
+                <strong>Full Name</strong><br>
+                <a href="mailto:#">first.last@example.com</a>
+            </address>-->
+            
+        
+        
+        
+        </div>
+        
+        
+        
+        <div class="col-lg-2 profile-picture" style="margin-left:10px;"  >
+ 
+           <div class="widget-body">
+        <div class="widget-main">
+          <dl id="dt-list-1">
+            <dt>Start Date:<?=$Info->event_date?></dt>
+             <dt>End  Date:<?=$Info->end_date?></dt>
+              <dt>Country- <?=$Info->country_name?></dt>
+                <dt>State -<?=$Info->state_name?></dt>
+                  <dt>City - <?=$Info->city_name?></dt>
+                  <dt>Start Time:<?=$Info->start_time?></dt>
+             <dt>End  Time:<?=$Info->end_time?></dt>
+               
+           
+          
+                          
+          </dl>
+        </div>
+      </div>
+        
+        
+        
+        </div>
+         <div style="margin-left:10px;">
+                <strong>Posted By : <?= $Info->username?> | </strong>
+                <strong>Posted Date : <?= $Info->created_date?> | </strong>
+                <?=$Info->venue?><br>
+        </div>
+         <?php
+         print_r($Info);
+         ?>
+    </div>
+  </div>
+   </div>
+  </div></div></div></div>
+<!-- /.main-container --> 

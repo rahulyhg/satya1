@@ -1,0 +1,140 @@
+<thead>
+                      <tr>
+                         
+                         
+                         <th><input type="checkbox" value="" id="checkAll" onclick="checkall(this.id)" > Sr. No. </th>
+                        <th>State Name</th>
+                        <th>Country Name</th>
+                        <th class="hidden-480">Modified Date</th>
+                        <th class="hidden-480">Created Date</th>
+                        <th class="hidden-480">Status</th>
+                        <th class="hidden-480">Modified By</th>
+                        <th><b>Actions</b></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php 
+                      $i=1;
+                      if(count($results)>0){
+                      foreach ($results as $state) {
+                      
+                      ?>
+                      <tr>
+                            
+                        <td><input type="checkbox" value="<?=$state->id?>" class="checkme" name="checkme[]"> <?=$i?></td>
+                        <td><?= $state->state_name?></td>                       
+                        <td class="hidden-480"><?= $state->country_name?></td>
+                        <td class="hidden-480"><?= date('l d-m-y',strtotime($state->created_date))?></td>
+                        <td class="hidden-480"><?= date('l d-m-y',strtotime($state->modified_date))?></td>
+                        <td class="hidden-480"><?php $status = ($state->IsActive==1)? 'Active': 'In-Active';
+                        $statuscolor = ($state->IsActive==1)? 'lightgreen': 'red';
+                         ?>
+                          <button name="ChangeStatus" id="changestatus<?=$i;?>" onclick="changestatusquick(<?=$state->id?>,<?= ($state->IsActive==0)?0:1; ?>,'<?= $this->serverUrl().$this->url().'/state/changestatus';?>',changstatusresult);"  style="background:<?=$statuscolor?>;color:white;font-weight:bold;"><?= $status?>
+                        </button></td>
+                        <td class="hidden-480"><?php echo ($state->modified_by==1)? 'Admin': 'NotByAdmin'; ?></td>
+                        <td>
+                        <div class="hidden-sm hidden-xs action-buttons"> 
+                        <!--<a class="blue" href="<?php echo $this->url('admin',array('controller'=>'state','action'=>'view','id'=>$state->id)); ?>"> 
+                        <i class="ace-icon fa fa-search-plus bigger-130"></i> </a>-->
+                        
+                         <a class="blue" style="cursor:pointer;" tar="indview<?=$i?>"> <i class="ace-icon fa fa-search-plus bigger-130"></i> </a>
+                        
+                         <a class="green" href="javascript:void(0);" 
+                          onclick="editbox(<?=$state->id?>,'<?= $this->serverUrl().$this->url('admin',array('controller'=>'state','action'=>'edit','id'=>$state->id));
+                        ?>',editformresp);"> <i class="ace-icon fa fa-pencil bigger-130"></i> </a> 
+
+                         <a class="red" href="<?php echo $this->url('admin',array('controller'=>'state','action'=>'delete','id'=>$state->id)); ?>" onclick="return confirm('are you sure you want to delete');"> <i class="ace-icon fa fa-trash-o bigger-130"></i> </a> </div>
+                          </td>
+                      </tr>
+                      
+                       <tr class="dontshow" id="indview<?=$i?>" aria-expanded="true">
+                     
+                	<td colspan="8">
+                    <div aria-expanded="true" class="panel-body accordion-body packageDetails1 collapse in" id="accordion1">
+               
+                          <div class="tab-content" id="myTabContent">
+        
+              <div class="col-sm-col-sm-offset-1" style="margin: 10px auto 0px !important;padding: 0 10px;">
+                <div class="row">
+                   <div class="form-group clearfix margintopbottom20 col-sm-12">
+                           <label id="flight_nos" class="col-sm-2 control-label labelalign ">
+                            <?= $this->translate('State Name'); ?>
+                           </label>
+                                                  <div class="col-sm-3">
+                                                     <?php 
+                                                     
+                                                     echo $state->state_name;
+                                                     ?>                                    
+                                                  </div>
+                           <label id="flight_nos" class="col-sm-2 control-label labelalign ">
+                            <?= $this->translate('Country Name'); ?>
+                           </label>
+                                                  <div class="col-sm-3">
+                                                     <?php 
+                                                     echo $state->country_name;
+                                                     ?>                                    
+                                                  </div>
+                                                 </div>
+                                             </div>
+                                             <div class="row">
+                                                <div class="form-group clearfix margintopbottom20 col-sm-12">
+                        <label id="flight_nos" class="col-sm-2 control-label labelalign ">
+                            <?= $this->translate('Modified By'); ?>
+                           </label>
+                                                  <div class="col-sm-3">
+                                                     <?php 
+                                                     echo ($state->modified_by==1)?'Admin':'Not Available Now';
+                                                     ?>                                    
+                                                  </div>
+                                                 
+                            <label id="flight_nos" class="col-sm-2 control-label labelalign ">
+                            <?= $this->translate('Status'); ?>
+                           </label>
+                                                  <div class="col-sm-3">
+                                                     <?php 
+                                                     echo ($state->IsActive==1)? 'Active':'In-Active';
+                                                     ?>                                    
+                                                  </div>
+                                                 </div>
+                                             </div>
+
+                                          <div class="row">
+                                                <div class="form-group clearfix margintopbottom20 col-sm-12">
+                          <label id="flight_nos" class="col-sm-2 control-label labelalign ">
+                            <?= $this->translate('Created Date'); ?>
+                           </label>
+                                                  <div class="col-sm-3">
+                                                     <?php 
+                                                     echo date('l d-m-Y',strtotime($state->created_date));
+                                                     ?>                                    
+                                                  </div>
+                                                 
+                            <label id="flight_nos" class="col-sm-2 control-label labelalign ">
+                            <?= $this->translate('Modified Date'); ?>
+                           </label>
+                                                  <div class="col-sm-3">
+                                                     <?php 
+                                                     echo date('l d-m-Y',strtotime($state->modified_date));
+                                                     ?>                                    
+                                                  </div>
+                                                 </div>
+                                             </div>  
+                                             
+              </div>
+           
+          </div>
+      </div>
+                    
+                                             
+                       </td>
+                    </tr>
+                      
+                      <?php 
+                      $i++;
+                    }
+                  }
+                  else echo" <tr>
+                         
+                       <td colspan=8><center><h2>No data available</h2></center></td></tr>";
+                      ?>
+                    </tbody>

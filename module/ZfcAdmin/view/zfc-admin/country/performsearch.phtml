@@ -1,0 +1,132 @@
+<thead>
+                      <tr>
+                         
+                        <th><input type="checkbox" value="" id="checkAll" onclick="checkall(this.id)" > Sr. No. </th>
+                        <th>Country Name</th>
+                        <th>Dial Code</th>
+                        <th class="hidden-480">Country Code</th>                       
+                        <th class="hidden-480">Modified Date</th>
+                        <th class="hidden-480">Created Date</th>
+                        <th class="hidden-480">Status</th>
+                        <th class="hidden-480">Modified By</th>
+                        <th><b>Actions</b></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php 
+                      $i=1;
+                      if(count($results)>0){
+                      foreach ($results as $country) {
+                      
+                      ?>
+                      
+                      <tr>
+                         
+                       <td><input type="checkbox" value="<?=$country->id?>" class="checkme" name="checkme[]"> <?=$i?></td>
+                        <td ><?= $country->country_name?></td>
+                                             
+                        <td class="hidden-480"><?= $country->dial_code?></td>
+                        <td><?= $country->country_code?></td>
+                        <td class="hidden-480"><?= $country->created_date?></td>
+                        <td class="hidden-480"><?= $country->modified_date?></td>
+                       <td class="hidden-480"><?php $status = ($country->IsActive==1)? 'Active': 'In-Active';
+                        $statuscolor = ($country->IsActive==1)? 'lightgreen': 'red';
+                         ?>
+                          <button name="ChangeStatus" id="changestatus<?=$i;?>" onclick="changestatusquick(<?=$country->id?>,<?= ($country->IsActive==0)?0:1; ?>,'<?= $this->serverUrl().$this->url().'/country/changestatus';?>',changstatusresult);"  style="background:<?=$statuscolor?>;color:white;font-weight:bold;"><?= $status?>
+                        </button></td>
+                        <td class="hidden-480"><?php echo ($country->modified_by==1)? 'Admin': 'NotByAdmin'; ?></td>
+                        <td aria-expanded="false" class="accordion1"><div class="hidden-sm hidden-xs action-buttons"> <a class="blue" href="#" tar="indview<?=$i?>"> <i class="ace-icon fa fa-search-plus bigger-130"></i> </a> <a class="green" href="javascript:void(0);" onclick="editbox(<?=$country->id?>,'<?= $this->serverUrl().$this->url('zfcadmin/admin',array('controller'=>'country','action'=>'edit','id'=>$country->id));
+                        ?>',editformresp);" > <i class="ace-icon fa fa-pencil bigger-130"></i> </a> <a class="red" href="<?php echo $this->url('zfcadmin/admin',array('controller'=>'country','action'=>'delete','id'=>$country->id)); ?>" onclick="return confirm('are you sure you want to delete');"> <i class="ace-icon fa fa-trash-o bigger-130"></i> </a> </div>
+                          </td>
+                      </tr>
+                      
+                      <!-- <?php echo $this->url('zfcadmin/admin',array('controller'=>'country','action'=>'edit','id'=>$country->id)); ?> -->
+                     <tr class="dontshow" id="indview<?=$i?>" aria-expanded="true">
+                     
+                	<td colspan="9">
+                    <div class="panel-body  aria-expanded="true" class="accordion-body packageDetails1 collapse in" id="accordion1"">
+               
+                          <div class="tab-content" id="myTabContent">
+        
+              <div style="margin: 10px auto 0px !important;padding: 0 10px;" class="container col-sm-col-sm-offset-1">
+                
+                <div class="row">
+                                  <div class="form-group clearfix margintopbottom20">
+                           <label class="col-sm-2 control-label labelalign " id="flight_nos">
+                            Country Name                           </label>
+                                                  <div class="col-sm-3">
+                                                     <?= $country->country_name?>                                 
+                                                  </div>
+                           <label class="col-sm-2 control-label labelalign " id="flight_nos">
+                            Dial Code                           </label>
+                                                  <div class="col-sm-3">
+                                                     <?= $country->dial_code?>                                   
+                                                  </div>
+                                                 </div>
+                                             </div>
+                                             <div class="row">
+                                                <div class="form-group clearfix margintopbottom20">
+                          <label class="col-sm-2 control-label labelalign " id="flight_nos">
+                            Country Code                           </label>
+                                                  <div class="col-sm-3">
+                                                     <?= $country->country_code?>                              
+                                                  </div>
+                                                 
+                            <label class="col-sm-2 control-label labelalign " id="flight_nos">
+                            Status                           </label>
+                                                  <div class="col-sm-3">
+                                                     <?= ($country->IsActive==1)? "Active":"InActive"; ?>                                 
+                                                  </div>
+                                                 </div>
+                                             </div>
+
+                                          <div class="row">
+                                                <div class="form-group clearfix margintopbottom20">
+                          <label class="col-sm-2 control-label labelalign " id="flight_nos">
+                            Created Date                           </label>
+                                                  <div class="col-sm-3">
+                                                     <?= date("l d-m-Y ",strtotime($country->created_date)); ?>                                 
+                                                  </div>
+                                                 
+                            <label class="col-sm-2 control-label labelalign " id="flight_nos">
+                            Modified Date                           </label>
+                                                  <div class="col-sm-3">
+                                                     <?= date("l d-m-Y ",strtotime($country->modified_date)); ?>                                 
+                                                                                 
+                                                  </div>
+                                                 </div>
+                                             </div>  
+                                             <div class="row">
+                                                <div class="form-group clearfix margintopbottom20">
+                          <label class="col-sm-2 control-label labelalign " id="flight_nos">
+                            Modified By                           </label>
+                                                  <div class="col-sm-3">
+                                                     <?= ($country->modified_by==1)?"Admin":"Not by Admin"; ?>                                 
+                                                                                      
+                                                  </div>
+                                                 </div>
+                                             </div>   
+
+      
+              </div>
+           
+          </div>
+      </div>
+                    
+                                             
+                       </td>
+                    </tr>
+                      
+                      
+                      
+                      
+                      
+                      <?php 
+                      $i++;
+                    }
+                  }
+                  else echo" <tr>
+                         
+                       <td colspan=9><center><h2>No data available</h2></center></td></tr>";
+                      ?>
+                    </tbody>

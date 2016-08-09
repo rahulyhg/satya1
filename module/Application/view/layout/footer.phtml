@@ -1,0 +1,103 @@
+<div class="col-xs-7">Copyrights &copy; <?php echo date('Y') ?> Rustagi Samaj.</div>
+<div class="col-xs-5">
+<ul class="social-footer">
+<li><a href="#" class="facebook"></a></li>
+<li><a href="#" class="twitter"></a></li>
+<li><a href="#" class="gplus"></a></li>
+<li><a href="#" class="dribbble"></a></li>
+</ul>
+</div>
+<script>
+$(document).ready(function() {
+	$("#bs-example-navbar-collapse-1 ul li:first").addClass('active');
+    setNavigation();
+	setSidebarNavigation();	
+	
+	
+
+$("#Female").click(function() {
+     $("#profile1").show();
+                    $("#profile").hide();
+    var count_checked = $("[name='matrimony_gender[]']:checked").length; // count the checked rows
+        if(count_checked == 0) 
+        {
+			
+            alert("Please select at leasst one record.");
+            return false;
+        }
+        if(count_checked == 1) {
+            //alert("Record Selected:"+count_checked);
+			$('#brides').hide();
+			$('#grooms').show();
+
+        } else {
+           // alert("Record Selected:"+count_checked);
+		   $('#brides').show();
+			$('#grooms').show();
+          }
+});
+
+$("#Male").click(function() {
+    $("#profile1").show();
+                    $("#profile").hide();
+	//debugger;
+    var count_checked = $("[name='matrimony_gender[]']:checked").length; // count the checked rows
+        if(count_checked == 0) 
+        {
+            alert("Please select at least one record.");
+			
+            return false;
+        }
+        if(count_checked == 1) {
+           // alert("Record Selected:"+count_checked);
+			$('#brides').show();
+			$('#grooms').hide();
+        } else {
+           // alert("Record Selected:"+count_checked);
+		   	$('#brides').show();
+			$('#grooms').show();
+          }
+});
+
+	 
+});
+
+/*function ShowHideDiv(groomcheck) {
+            var grooms = document.getElementById("grooms");
+            grooms.style.display = groomcheck.checked ? "block" : "none";
+        }
+		
+		 function ShowHideDiv1(bridescheck) {
+            var brides = document.getElementById("brides");
+            brides.style.display = bridescheck.checked ? "block" : "none";
+        }*/
+
+
+function setNavigation() {
+    var path = window.location.pathname;
+    path = path.replace(/\/$/, "");
+    path = decodeURIComponent(path);
+	
+    $("#bs-example-navbar-collapse-1 ul li a").each(function () {
+        var href = $(this).attr('href');
+        if (path.substring(0, href.length) === href) {
+			$("#bs-example-navbar-collapse-1 ul li:first").removeClass('active');
+            $(this).closest('li').addClass('active');
+        }
+    });
+}
+function setSidebarNavigation() {
+    var path = window.location.pathname;
+    path = path.replace(/\/$/, "");
+    path = decodeURIComponent(path);
+	
+    $("#bs-example-navbar-collapse-2 ul li a").each(function () {
+        var href = $(this).attr('href');
+        if (path.substring(0, href.length) === href) {
+			$("#bs-example-navbar-collapse-2 ul li:first").removeClass('active');
+            $(this).closest('li').addClass('active');
+        }
+    });
+
+}
+</script>

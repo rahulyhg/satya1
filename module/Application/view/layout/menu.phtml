@@ -1,0 +1,63 @@
+<!-- Brand and toggle get grouped for better mobile display -->
+<div class="navbar-header">
+  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	<span class="sr-only">Page Anchor</span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+  </button>
+</div>
+
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<ul class="nav navbar-nav">
+<li><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
+<li><a href="<?php echo $this->basePath()?>/pages/staticpages/1"><?php echo $this->translate('ABOUT US') ?></a>
+<ul class="dropdown-menu" style="background-color:#eda344 !important;">
+<li><a href="<?php echo $this->basePath()?>/pages/history"><?php echo $this->translate('History') ?></a></li>
+<li><a href="<?php echo $this->basePath()?>/community"><?php echo $this->translate('Team Member') ?></a></li>
+<li><a href="<?php echo $this->basePath()?>/pages/vision"><?php echo $this->translate('Our Vision') ?></a></li>
+<li><a href="<?php echo $this->basePath()?>/pages/communities"><?php echo $this->translate('Other Rustagi Institutions') ?></a></li>	
+<!--<li><a href="<?php //echo $this->basePath()?>/pages/branches"><?php //echo $this->translate('All India Branches') ?></a></li>-->
+</ul>
+
+
+
+</li>
+<li><a href="<?php echo $this->basePath()?>/matrimonial"><?php echo $this->translate('MATRIMONIAL') ?></a></li>
+<li><a href="<?php echo $this->basePath()?>/membership"><?php echo $this->translate('MEMBER DIRECTORY') ?></a></li>
+<!--<ul class="dropdown-menu" style="background-color:#eda344 !important;">
+<li><a href="#">Drop Menu1</a></li>
+<li class="dropdown-submenu"><a href="#" tabindex="-1">Drop Menu2</a></li>
+<ul class="dropdown-menu" style="background-color:#eda344 !important;">
+<li><a href="#">SubDrop Menu1</a></li>
+<li><a href="#">SubDrop Menu2</a></li>
+<li><a href="#">SubDrop Menu3</a></li>
+<li><a href="#">SubDrop Menu4</a></li>
+<li><a href="#">SubDrop Menu5</a></li>
+</ul>
+</li>
+<li><a href="#">Drop Menu3</a></li>
+<li><a href="#">Drop Menu4</a></li>
+<li><a href="#">Drop Menu5</a></li>
+</ul>
+</li>-->
+<li><a href="#"><?php echo $this->translate('ATTRACTIONS') ?></a>
+
+<ul class="dropdown-menu" style="margin-top:-2px !important; background-color:#eda344 !important;">
+<li><a href="<?php echo $this->basePath()?>/news"><?php echo $this->translate('NEWS') ?></a></li>
+
+<li class="dropdown-submenu"><a href="<?php echo $this->basePath()?>/events" tabindex="-1"><?php echo $this->translate('EVENTS') ?></a>
+<ul class="dropdown-menu" style="background-color:#eda344 !important;">
+<li><a href="<?php echo $this->basePath()?>/events"><?php echo $this->translate('Upcoming Events') ?></a></li>
+<li><a href="<?php echo $this->basePath()?>/events/previous"><?php echo $this->translate('Previous Events') ?></a></li>
+</ul>
+</li>
+</ul>
+
+<li><a href="<?php echo $this->basePath()?>/community"><?php echo $this->translate('COMMUNITY') ?></a></li>
+<li><a href="<?php echo $this->basePath()?>/pages/gallery"><?php echo $this->translate('PHOTO GALLERY') ?></a></li>
+<!--<li><a href="#"><?php echo $this->translate('TESTIMONIALS') ?></a></li>-->
+<li><a href="<?php echo $this->basePath()?>/pages/contact"><?php echo $this->translate('CONTACT US') ?></a></li>
+</ul>
+</div>

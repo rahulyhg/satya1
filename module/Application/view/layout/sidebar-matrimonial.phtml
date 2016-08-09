@@ -1,0 +1,337 @@
+
+
+
+
+<div class="panel-group" id="matrimony_accordion">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-toggle" href="<?php echo $this->basePath() ?>/membership">
+                    <span class="pull-right glyphicon"></span>Mamber Directory</a>
+            </h4>
+        </div>
+
+    </div>
+
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                    <span class="pull-right glyphicon glyphicon-minus"></span>Looking For</a>
+            </h4>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <ul>
+
+                    <li><input type="checkbox"  id="Female" value="Female" name="matrimony_gender[]" 
+                               <?= ($_GET['search_for'] == "Female") ? "checked='checked'" : ""; ?> onclick="filterData();"><label>Bride</label></li>
+                    <li><input type="checkbox" id="Male" value="Male" name="matrimony_gender[]"  
+                               <?= ($_GET['search_for'] == "Male") ? "checked='checked'" : ""; ?> onclick="filterData();"><label>Groom</label></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <ul class="newulclass">
+        <li>
+            <select class="form-control" id="filter_country" ftype="country"  onchange="filterData();">
+                <option value="">---Select---country---</option>
+                <?php
+                foreach ($filters_data["country"] as $GrData) {
+                    echo "<option value=" . $GrData->id . ">" . $GrData->country_name . "</option>";
+                }
+                ?>
+            </select>
+        </li>
+    </ul>
+
+
+
+
+    <ul class="newulclass">
+        <li><select class="form-control" id="filter_state" ftype="state"  onchange="filterData();">
+
+
+            </select></li>
+    </ul>
+
+
+
+    <ul class="newulclass">
+        <li>
+            <?php
+            // echo MembershipController::membercountAction();
+            // print_r($this);
+            ?>
+            <select class="form-control" id="filter_city" ftype="city"  onchange="filterData();">
+
+
+
+            </select>
+        </li>
+    </ul>
+
+    <ul class="newulclass">
+        <li><input type="text" class="form-control" placeholder="---Pin---Code---" ftype="zip_pin_code" id="zip_pin_code"></li>
+
+    </ul>
+    <ul class="newulclass">
+        <li><input type="text" class="form-control" placeholder="---Enter---Phone---No" ftype="phone_no" id="phone_no"></li>
+
+    </ul>
+
+
+    <ul class="newulclass">
+        <li><input type="text" class="form-control" placeholder="---Name---" ftype="full_name" id="full_name"></li>
+
+    </ul>
+
+    <!-- <ul class="newulclass">
+    <li><input type="text" class="form-control" placeholder="Enter Father Name" ftype="father_name"></li>
+    
+    </ul> -->
+
+    <ul class="newulclass">
+        <li><input type="text" class="form-control" placeholder="---Email---" ftype="office_email" id="office_email"></li>
+
+    </ul>
+    <ul class="newulclass">
+        <li><input type="text" class="form-control" placeholder="---Enter---Profile---ID---" id="ref_no" ftype="ref_no"></li>
+
+
+    </ul>
+    <ul class="newulclass">
+        <li>
+            <div class="slider">
+                <b>Age:</b><br>
+                <input type="hidden" id="amount_age1">
+                <input type="hidden" id="amount_age2">
+                <span class="amount" id="age-amount">0</span>
+                <div class="slider-range" id="slider_age" ftype="age"></div> 
+            </div>
+        </li>
+
+    </ul>
+
+    <ul class="newulclass">
+        <li>
+            <div class="slider">
+                <b>Annual Income :</b><br>
+                <input type="hidden" id="amount_annual_income1">
+                <input type="hidden" id="amount_annual_income2">
+                <span class="amount" id="income-amount">0</span>
+                <div class="slider-range" id="slider_annual_income" ftype="annual_income"></div> 
+            </div>
+        </li>
+
+    </ul>
+
+    <!-- <ul class="newulclass">
+    <li>
+    <div class="slider">
+          <b>Height :</b><br>
+          <span class="amount" id="height-amount">0</span>
+          <div class="slider-range" ftype="height"></div> 
+     </div>
+    </li>
+    
+    </ul> -->
+    <!-- <ul class="newulclass">
+<li>
+<select class="form-control">
+  <option>South Zone</option>
+      <option>North Zone</option>
+      <option>East Zone</option>
+      <option>West Zone</option>
+      
+</select>
+</ul>
+    
+
+
+    <ul class="newulclass">
+<li>
+<select class="form-control">
+  <option>South Zone</option>
+      <option>North Zone</option>
+      <option>East Zone</option>
+      <option>West Zone</option>
+      
+</select>
+</li>
+</ul> -->
+
+
+
+
+
+
+
+
+    <!-- <ul class="newulclass">
+<li>
+<p>
+
+<input value="22 - 25" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;" type="text">
+</p>
+
+<div class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" id="slider-range"><div style="left: 0; width: ;" class="ui-slider-range ui-widget-header ui-corner-all"></div><span style="left: 2.6%;" class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span><span style="left: 65.2%;" class="ui-slider-handle ui-state-default ui-corner-all ui-state-focus" tabindex="0"></span></div>
+
+
+</li>
+
+</ul> -->
+
+
+    <!-- 
+        <ul class="newulclass">
+  <li><input type="checkbox"><label>3.5'-4.5'</label></li>
+  <li><input type="checkbox"><label>4.5'-5.5'</label></li>
+  <li><input type="checkbox"><label>5.5'-6.5'</label></li>
+  <li><input type="checkbox"><label>6.5'-7.5'</label></li>
+  
+  </ul> -->
+
+    <ul class="newulclass">
+        <li>
+            <select class="form-control" id="filter_height" ftype="height" onchange="filterData();">
+                <option value="">---Select---Height---</option>   
+                <?php
+                foreach ($filters_data["height"] as $GrData) {
+                    echo "<option value=" . $GrData->id . ">" . $GrData->height . "</option>";
+                }
+                ?>
+            </select>
+        </li>
+    </ul>
+
+
+    <ul class="newulclass">
+        <li>
+            <select class="form-control" id="filter_profession" ftype="profession" onchange="filterData();">
+                <option value="">---Select---Profession---</option>   
+<?php
+foreach ($filters_data["profession"] as $GrData) {
+    echo "<option value=" . $GrData->id . ">" . $GrData->profession . "</option>";
+}
+?>
+            </select>
+        </li>
+    </ul>
+
+
+    <ul class="newulclass">
+        <li>
+            <select class="form-control" id="filter_education" ftype="education_field" onchange="filterData();">
+                <option value="">---Select---Education---</option>   
+<?php
+foreach ($filters_data["education_level"] as $GrData) {
+    echo "<option value=" . $GrData->id . ">" . $GrData->education_field . "</option>";
+}
+?>
+
+            </select>
+        </li>
+    </ul>
+
+    <ul class="newulclass">
+        <li>
+            <select class="form-control" id="filter_designation" ftype="designation" onchange="filterData();">
+                <option value="">---Select---Designation---</option>   
+<?php
+foreach ($filters_data["designation"] as $GrData) {
+    echo "<option value=" . $GrData->id . ">" . $GrData->designation . "</option>";
+}
+?>
+
+            </select>
+        </li>
+    </ul>
+    <ul class="newulclass">
+        <li>
+            <select class="form-control" id="filter_mstatus" ftype="marital_status" onchange="filterData();">
+                <option value="">---Marital---Status---</option>   
+                <option value="Single">Single</option>   
+                <option value="Married">Married</option>   
+                <option value="Divorced">Divorced</option>   
+                <option value="Widowed">Widowed</option>   
+                <option value="Separated">Separated</option>   
+            </select>
+        </li>
+    </ul>
+
+    <ul class="newulclass">
+        <li>
+            <select class="form-control" id="filter_dossam" ftype="manglik_dossam" onchange="filterData();">
+                <option value="">---Manglik---Dosh---</option>
+                <option value="Manglik">Manglik</option>
+                <option value="Non Manglik">Non Manglik</option>
+
+
+            </select>
+        </li>
+    </ul>
+
+    <!-- <ul class="newulclass">
+<li><select class="form-control">
+<option> Telugu</option>
+  <option> Tamil</option>
+  <option>Bengali</option>
+  <option>Marathi</option>
+  <option>Malayalam</option>
+   <option> Punjabi</option>
+   <option>Hindi</option>
+   <option>English</option>
+   <option>Assamese</option>
+</select></li>
+
+</ul> -->
+
+
+
+    <!-- <ul class="newulclass">
+<li><select class="form-control">
+<option>Community 1</option>
+  <option>Community 2</option>
+  <option>Community 3</option>
+  <option>Community 4</option>
+  <option>Community 5</option>
+   <option>Community 6</option>
+   <option>Community 7</option>
+   <option>Community 8</option>
+   <option>Community 9</option>
+</select></li>
+
+</ul> -->
+
+
+
+
+
+
+
+    <!-- <ul class="newulclass">
+<li>
+
+<p>
+
+<input value="Rs 0 - Rs 200000" id="amount1" readonly style="border:0; color:#f6931f; font-weight:bold;" type="text">
+</p>
+
+<div class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" id="slider-range1"><div style="left: 0; width: ;" class="ui-slider-range ui-widget-header ui-corner-all"></div><span style="left: 2.6%;" class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span><span style="left: 65.2%;" class="ui-slider-handle ui-state-default ui-corner-all ui-state-focus" tabindex="0"></span></div>
+
+
+</li>
+
+</ul>
+    -->
+
+
+
+
+</div>
+<?php echo $this->partial('layout/sidebar-slider') ?>

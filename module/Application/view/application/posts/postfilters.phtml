@@ -1,0 +1,35 @@
+<h2 class="heading">Latest Post</h2>
+<ul id="items">
+ <?php 
+if(count($AllPosts)>0){
+foreach ($AllPosts as $Posts) {
+
+?>
+<li>
+<div class="col-md-6 news col-xs-12">
+<div class="col-md-3 col-sm-2 col-xs-2 img">
+   
+<img src="<?= empty($Posts->image)? $this->basePath()."/images/new-big.jpg":$this->basePath().$Posts->image; ?>" class="img-responsive" />
+</div>
+<div class="col-md-9 col-sm-10 col-xs-10 content">
+<h4 class="limits"><?=substr($Posts->title,0,20);?></h4>
+
+<p><p class="limits"><?=substr($Posts->description,0,50);?>...</p>
+
+<a href="<?php echo $this->basePath()?>/pages/postview/<?=$Posts->postid?>">Read Full Story >></a></p>
+
+</div>
+
+<p style="font-size:11px;">
+ Category Name: <?=$Posts->category_name?><br>
+Sender: <?=$Posts->email?><br>
+Posted Date: <?=$Posts->postdate?></p>
+</div>
+ </li> 
+ <?php 
+}
+}
+else echo '<h4>Currently No Data Available</h4>';
+ ?>
+ </ul>
+<div class="clearfix"></div>

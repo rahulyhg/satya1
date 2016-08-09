@@ -1,0 +1,512 @@
+<style>
+	p{
+		text-align:center;
+	}
+</style>
+
+<div class="col-sm-3 col-sm-3-new width20per">
+<?php echo $this->partial('layout/sidebar-about') ?>
+<?php echo $this->partial('layout/sidebar-slider') ?>
+</div>
+
+
+<?php 
+
+
+// function buildTree(array $elements, $parentId = 0) {
+//     $branch = array();
+
+//     foreach ($elements as $element) {
+//         if ($element['agent_id'] == $parentId) {
+//             $children = buildTree($elements, $element['id']);
+//             if ($children) {
+//                 $element['children'] = $children;
+//             }
+//             $branch[] = $element;
+//         }
+//     }
+
+//     return $branch;
+// }
+
+// $tree = buildTree($new);
+
+//    print_r($tree);
+   
+        // foreach ($new as $key => $value) {
+        //   echo "<ul><li>".$key."</li><ul>";
+
+        //   foreach ($value as $k => $v) {
+        //   echo "<li>".$v['sub_agent_id']."</li>";
+
+        //   }
+
+
+        //   echo "</ul></ul>";
+        // }
+  
+ ?>
+<div class="col-sm-9 width80per">
+<h2 class="heading">Rohini Branch</h2>
+<?php 
+/*
+<div class="tree">
+	<ul>
+		<li><a href="<?php echo $this->basePath()?>/membership/profile-view?groom_id=<?php echo $execmem->id ?>" class="maincommunity">
+       <div class="img-tag">
+       <img src="<?php if($execmem->profile_photo !=''){
+            echo $this->basePath().$execmem->profile_photo;
+          }else{
+            echo $this->basePath().'/img/default_user.png';
+          } ?>"/>
+      <!-- <img src="<?php echo $this->basePath('images/community1.png') ?>" />--></div>
+       <div class="pull-right" align="center" style="text-align:center;">
+       <p class="lead" style="text-align:center;"><?php echo $execmem->full_name ?> Full Name </p>
+        <p><?php echo $execmem->profession ?>Post</p>
+        <p><?php echo $execmem->city_name ?>Email ID</p>
+        </div>
+        </a>
+			<ul>
+            <li><a href="#" class="maincommunity">
+            <div class="img-tag">
+             <img src="<?php if($execmem->profile_photo !=''){
+            echo $this->basePath().$execmem->profile_photo;
+          }else{
+            echo $this->basePath().'/img/default_user.png';
+          } ?>"/>
+            <!--<img src="<?php echo $this->basePath('images/community2.png') ?>" />--></div>
+            <div class="col-xs-7">
+            <p class="lead">CA सुभास चन्द रुस्तगी </p>
+            <p>Vice Patron</p>
+            <p>rustagiguptandco@gmail.com</p>
+            </div>
+            </a></li>
+            
+            <li><a href="#" class="maincommunity">
+            <div class="img-tag">
+             <img src="<?php if($execmem->profile_photo !=''){
+            echo $this->basePath().$execmem->profile_photo;
+          }else{
+            echo $this->basePath().'/img/default_user.png';
+          } ?>"/>
+            
+            <!--<img src="<?php echo $this->basePath('images/community3.png') ?>" />--></div>
+            <div class="col-xs-7">
+            <p class="lead">संतराम रुस्तगी </p>
+            <p>Patron</p>
+            <p>surajbhansantram@gmail.com</p>
+            </div>
+            </a></li>
+            
+            <li><a href="#" class="maincommunity">
+            <div class="img-tag">
+             <img src="<?php if($execmem->profile_photo !=''){
+            echo $this->basePath().$execmem->profile_photo;
+          }else{
+            echo $this->basePath().'/img/default_user.png';
+          } ?>"/>
+            <!--<img src="<?php echo $this->basePath('images/community4.png') ?>" />--></div>
+            <div class="col-xs-7">
+            <p class="lead">सुनील कुमार रुस्तगी</p>
+            <p>Patron</p>
+            <p>j.sunilrustagi@gmail.com</p>
+            </div>
+            </a></li>
+            
+            <li><a href="#" class="maincommunity">
+            <div class="img-tag">
+             <img src="<?php if($execmem->profile_photo !=''){
+            echo $this->basePath().$execmem->profile_photo;
+          }else{
+            echo $this->basePath().'/img/default_user.png';
+          } ?>"/>
+            
+            
+            <!--<img src="<?php echo $this->basePath('images/community5.png') ?>" />--></div>
+            <div class="col-xs-7">
+            <p class="lead">पुरुषोत्तम रुस्तगी </p>
+            <p>Advisor</p>
+            <p>pdrustagi123@gmail.com</p>
+            </div>
+            </a></li>
+            
+            <li><a href="#" class="maincommunity">
+            <div class="img-tag">
+             <img src="<?php if($execmem->profile_photo !=''){
+            echo $this->basePath().$execmem->profile_photo;
+          }else{
+            echo $this->basePath().'/img/default_user.png';
+          } ?>"/>
+           <!-- <img src="<?php echo $this->basePath('images/community6.png') ?>" />--></div>
+            <div class="col-xs-7">
+            <p class="lead">श्याम सुन्दर रुस्तगी</p>
+            <p>Advisor</p>
+            <p>javkie452@gmail.com</p>
+            </div>
+            </a></li>
+            </ul>
+            </li>
+	</ul>
+</div>
+
+<div class="tree">
+	<ul>
+		<li><a href="<?php echo $this->basePath() ?>/membership/community-members" class="maincommunity1">
+       <div class="img-tag">
+        <img src="<?php if($execmem->profile_photo !=''){
+            echo $this->basePath().$execmem->profile_photo;
+          }else{
+            echo $this->basePath().'/img/default_user.png';
+          } ?>"/>
+       
+       <!--<img src="<?php echo $this->basePath('images/community7.png') ?>" />--></div>
+       <div class="pull-right">
+       <p class="lead">Name  </p>
+        <p>Post</p>
+        <p>Email Id\D</p>
+        </div>
+        </a>
+			<ul>
+            <li><a href="#" class="maincommunity1">
+            <div class="img-tag">
+             <img src="<?php if($execmem->profile_photo !=''){
+            echo $this->basePath().$execmem->profile_photo;
+          }else{
+            echo $this->basePath().'/img/default_user.png';
+          } ?>"/>
+            
+            <!--<img src="<?php echo $this->basePath('images/community8.png') ?>" />--></div>
+            <div class="col-xs-7">
+            <p class="lead">अजय रुस्तगी</p>
+            <p>Sr. Vice President</p>
+            <p>rustagiajay68@gmail.com</p>
+            </div>
+            </a></li>
+            
+            <li><a href="#" class="maincommunity1">
+            <div class="img-tag">
+             <img src="<?php if($execmem->profile_photo !=''){
+            echo $this->basePath().$execmem->profile_photo;
+          }else{
+            echo $this->basePath().'/img/default_user.png';
+          } ?>"/>
+            
+           <!-- <img src="<?php echo $this->basePath('images/community9.png') ?>" />--></div>
+            <div class="col-xs-7">
+            <p class="lead">CS मुकेश रुस्तगी </p>
+            <p>Vice President</p>
+            <p>mukesh_rustagi80@gmail.com</p>
+            </div>
+            </a></li>
+            
+            <li><a href="#" class="maincommunity1">
+            <div class="img-tag">
+             <img src="<?php if($execmem->profile_photo !=''){
+            echo $this->basePath().$execmem->profile_photo;
+          }else{
+            echo $this->basePath().'/img/default_user.png';
+          } ?>"/>
+            <!--<img src="<?php echo $this->basePath('images/community10.png') ?>" />--></div>
+            <div class="col-xs-7">
+            <p class="lead">उमेश रुस्तगी</p>
+            <p>Vice President</p>
+            <p>ganeshairconditioning@gmail.com</p>
+            </div>
+            </a></li>
+            
+            <li><a href="#" class="maincommunity1">
+            <div class="img-tag">
+             <img src="<?php if($execmem->profile_photo !=''){
+            echo $this->basePath().$execmem->profile_photo;
+          }else{
+            echo $this->basePath().'/img/default_user.png';
+          } ?>"/>
+            <!--<img src="<?php echo $this->basePath('images/community11.png') ?>" />--></div>
+            <div class="col-xs-7">
+            <p class="lead">अरुण रुस्तगी</p>
+            <p>Vice President</p>
+            <p>rustogi.arun@hotmail.com</p>
+            </div>
+            </a></li>
+            
+            <li><a href="#" class="maincommunity1">
+            <div class="img-tag">
+             <img src="<?php if($execmem->profile_photo !=''){
+            echo $this->basePath().$execmem->profile_photo;
+          }else{
+            echo $this->basePath().'/img/default_user.png';
+          } ?>"/>
+            <!--<img src="<?php echo $this->basePath('images/community12.png') ?>" />--></div>
+            <div class="col-xs-7">
+            <p class="lead">डा राजेंद्र रुस्तगी</p>
+            <p>Vice President</p>
+            <p>rpr161@gmail.com</p>
+            </div>
+            </a></li>
+            </ul>
+            </li>
+	</ul>
+</div>
+
+<div class="tree">
+	<ul>
+		<li>
+       <!-- <a href="#">
+       <div class="img-tag pull-left"><img src="<?php echo $this->basePath('images/community13.png') ?>" /></div>
+       <div class="pull-right">
+       <p class="lead">T. G Rustagi</p>
+        <p>President</p>
+        <p>tgrustagi45@gmail.com</p>
+        </div>
+        </a>-->
+			<ul>
+            <li><a href="#" class="maincommunity2">
+            <div class="img-tag">
+             <img src="<?php if($execmem->profile_photo !=''){
+            echo $this->basePath().$execmem->profile_photo;
+          }else{
+            echo $this->basePath().'/img/default_user.png';
+          } ?>"/>
+            <!--<img src="<?php echo $this->basePath('images/community16.png') ?>" />--></div>
+            <div class="col-xs-7">
+            <p class="lead">हरीओम रुस्तगी  </p>
+            <p>General Secretary</p>
+            <p>horustagi1952@gmail.com</p>
+            </div>
+            </a></li>
+            
+            <li><a href="#" class="maincommunity2">
+            <div class="img-tag">
+             <img src="<?php if($execmem->profile_photo !=''){
+            echo $this->basePath().$execmem->profile_photo;
+          }else{
+            echo $this->basePath().'/img/default_user.png';
+          } ?>"/>
+            
+            <!--<img src="<?php echo $this->basePath('images/community17.png') ?>" />--></div>
+            <div class="col-xs-7">
+            <p class="lead">प्रवीण रुस्तगी</p>
+            <p>Organising Secretary</p>
+            <p>parveenrustagi.pr@gmail.com</p>
+            </div>
+            </a></li>
+            
+            <li><a href="#" class="maincommunity2">
+            <div class="img-tag">
+             <img src="<?php if($execmem->profile_photo !=''){
+            echo $this->basePath().$execmem->profile_photo;
+          }else{
+            echo $this->basePath().'/img/default_user.png';
+          } ?>"/>
+            
+            <!--<img src="<?php echo $this->basePath('images/community18.png') ?>" />--></div>
+            <div class="col-xs-7">
+            <p class="lead">राजेंद्र  रुस्तगी </p>
+            <p>Organising Secretary</p>
+            <p></p>
+            </div>
+            </a></li>
+            
+            <li><a href="#" class="maincommunity2">
+            <div class="img-tag">
+             <img src="<?php if($execmem->profile_photo !=''){
+            echo $this->basePath().$execmem->profile_photo;
+          }else{
+            echo $this->basePath().'/img/default_user.png';
+          } ?>"/>
+            
+           <!-- <img src="<?php echo $this->basePath('images/community19.png') ?>" />--></div>
+            <div class="col-xs-7">
+            <p class="lead">महेंद्र रुस्तगी </p>
+            <p>Secretary</p>
+            <p>mahenderrustagi27@gmail.com</p>
+            </div>
+            </a></li>
+            
+            <li><a href="#" class="maincommunity2">
+            <div class="img-tag">
+             <img src="<?php if($execmem->profile_photo !=''){
+            echo $this->basePath().$execmem->profile_photo;
+          }else{
+            echo $this->basePath().'/img/default_user.png';
+          } ?>"/>
+            
+            <!--<img src="<?php echo $this->basePath('images/community20.png') ?>" />--></div>
+            <div class="col-xs-7">
+            <p class="lead">राजेश रुस्तगी</p>
+            <p>Secretary</p>
+            <p>rajeshrustagi203@gmail.com</p>
+            </div>
+            </a></li>
+            </ul>
+            </li>
+	</ul>
+</div>
+
+<div class="tree">
+	<ul>
+		<li>
+       <!-- <a href="#">
+       <div class="img-tag pull-left"><img src="<?php echo $this->basePath('images/community13.png') ?>" /></div>
+       <div class="pull-right">
+       <p class="lead">T. G Rustagi</p>
+        <p>President</p>
+        <p>tgrustagi45@gmail.com</p>
+        </div>
+        </a>-->
+			<ul>
+            <li><a href="#" class="">
+            <div class="img-tag">
+             <img src="<?php if($execmem->profile_photo !=''){
+            echo $this->basePath().$execmem->profile_photo;
+          }else{
+            echo $this->basePath().'/img/default_user.png';
+          } ?>"/>
+            
+            <!--<img src="<?php echo $this->basePath('images/community14.png') ?>" />--></div>
+            <div class="col-xs-7">
+            <p class="lead">रविकांत रुस्तगी  </p>
+            <p>Treasurer</p>
+            <p>ravi_rustagi@yahoo.co.in</p>
+            </div>
+            </a></li>
+            
+            <li><a href="#" class="">
+            <div class="img-tag">
+             <img src="<?php if($execmem->profile_photo !=''){
+            echo $this->basePath().$execmem->profile_photo;
+          }else{
+            echo $this->basePath().'/img/default_user.png';
+          } ?>"/>
+            
+            
+            <!--<img src="<?php echo $this->basePath('images/tree-img.jpg') ?>" />--></div>
+            <div class="col-xs-7">
+            <p class="lead">पंकज रुस्तगी</p>
+            <p>Jt. Treasurer</p>
+            <p>pankshika@yahoo.co.in</p>
+            </div>
+            </a></li>
+            
+            
+            
+            <li><a href="#" class="">
+            <div class="img-tag">
+            
+             <img src="<?php if($execmem->profile_photo !=''){
+            echo $this->basePath().$execmem->profile_photo;
+          }else{
+            echo $this->basePath().'/img/default_user.png';
+          } ?>"/>
+            
+            <!--<img src="<?php echo $this->basePath('images/community15.png') ?>" />--></div>
+            <div class="col-xs-7">
+            <p class="lead">प्रदीप रुस्तगी</p>
+            <p>Secretary</p>
+            <p>rajeshrustagi203@gmail.com</p>
+            </div>
+            </a></li>
+            </ul>
+            </li>
+	</ul>
+</div>
+
+<div class="clearfix"></div>
+
+</div>
+<?php   
+*/
+foreach ($new as $key => $value) {
+  ?>
+  <div class="tree">
+  <ul>
+    <li><a href="<?php echo $this->basePath()?>/membership/profile-view?groom_id=<?php echo $value['user_id'] ?>" class="maincommunity">
+       <div class="img-tag">
+       <img src="<?php if($value['profile_photo'] !=''){
+            echo $this->basePath().$value['profile_photo'];
+          }else{
+            echo $this->basePath().'/img/default_user.png';
+          } ?>" style="width:71px;"/>
+      <!-- <img src="<?php echo $this->basePath('images/community1.png') ?>" />--></div>
+       <div class="pull-right" align="center" style="text-align:center;">
+       <p class="lead" style="text-align:center;"><?=$value['full_name']?> Full Name </p>
+        <p><?=$value['category_name']?> Post</p>
+        <p><?=$value['email']?> Email ID</p>
+        </div>
+        </a>
+<ul>
+  <?php
+
+          foreach ($value['mychild'] as $k => $v) {
+
+          ?>
+          <li> <a href="#" class="maincommunity">
+            <div class="img-tag">
+             <img src="<?php if($v['profile_photo'] !=''){
+            echo $this->basePath().$v['profile_photo'];
+          }else{
+            echo $this->basePath().'/img/default_user.png';
+          } ?>" style="width:71px;"/>
+            <!--<img src="<?php echo $this->basePath('images/community2.png') ?>" />--></div>
+            <div class="col-xs-7">
+            <p class="lead"><?=$v['full_name']?></p>
+            <p><?=$v['category_name']?></p>
+            <p><?=$v['email']?></p>
+            </div>
+            </a></li>
+          <?php
+
+          }
+
+
+          ?></ul></li></ul></div>
+          <?php
+        }
+
+
+         
+			if(isset($lone)){
+          foreach ($lone as $key => $value) {
+
+              ?><div class="tree">
+              <ul><li><ul>
+              <?php
+					//for Live purpose
+                foreach ($value as $k => $v) {
+				
+				//for testing purpose
+				// foreach ($lone as $k => $v) {	
+					
+                    ?><li><a href="#" class="maincommunity">
+            <div class="img-tag">
+             <img src="<?php if($v['profile_photo'] !=''){
+            echo $this->basePath().$v['profile_photo'];
+          }else{
+            echo $this->basePath().'/img/default_user.png';
+          } ?>" style="width:71px;"/>
+            <!--<img src="<?php echo $this->basePath('images/community2.png') ?>" />--></div>
+            <div class="col-xs-7">
+            <p class="lead"><?=$v['full_name']?></p>
+            <p><?=$v['category_name']?></p>
+            <p><?=$v['email']?></p>
+            </div>
+            </a></li>
+                    <?php
+                }
+                ?>
+              </ul></li></ul></div>
+                <?php
+         }
+		 }else{?>
+			 <div><?php //  echo 'lone variable is empty'; ?></div>
+			 
+		<?php	 }
+ 
+?>
+
+<div class="clearfix"></div>
+
+</div>
+
+
+ 

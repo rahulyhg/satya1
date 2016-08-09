@@ -1,0 +1,289 @@
+<div class="row">
+          <div class="col-xs-12"> 
+            <!-- PAGE CONTENT BEGINS -->
+            <!--<div class="alert alert-block alert-success">
+              <button type="button" class="close" data-dismiss="alert"> <i class="ace-icon fa fa-times"></i> </button>
+              <i class="ace-icon fa fa-check green"></i> Welcome to <strong class="green">RUSTAGI SAMAJ </strong>,
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo massa sed ipsum porttitor facilisis. </div>-->
+              <div class="row">
+              <?php 
+
+              foreach ($fieldcounts as $key => $value) {
+//echo "mihir";
+              
+              ?>
+            
+              <div class="col-md-15 col-sm-6 col-xs-6">
+              <div class="panel panel-back noti-box2">
+             
+                <p class="main-text"><a href='<?= $this->url("zfcadmin/admin",array("controller"=>$key,"action"=>"index"))?>'><?= ucfirst($key)?> Master</a> </p>
+                <div class="text-box" >
+                <p><?= $key?>   - <?= $value?></p>
+               
+              
+                </div>
+                </div>
+              </div>
+              
+              <!-- <div class="col-md-15 col-sm-6 col-xs-6">
+               <div class="panel panel-back noti-box2">
+             
+                <p class="main-text"><a href="add-state-master.html">State Master</a></p>
+                <div class="text-box" >
+                <p> State Master - 100</p>
+               
+                </div>
+                </div>
+              </div>
+              
+              <div class="col-md-15 col-sm-6 col-xs-6" >
+               <div class="panel panel-back noti-box2">
+               
+                <p class="main-text"><a href="add-city-master.html">City Master</a></p>
+                <div class="text-box">
+                <p>City Master - 10</p>
+               
+                </div>
+                </div>
+              </div>
+              
+              <div class="col-md-15 col-sm-6 col-xs-6">
+               <div class="panel panel-back noti-box2">
+             
+                <p class="main-text"><a href="add-region-master.html">Region  Master</a></p>
+                <div class="text-box" >
+                <p>Region Master - 10</p>
+               
+                </div>
+                </div>
+              </div>
+              
+              <div class="col-md-15 col-sm-6 col-xs-6">
+               <div class="panel panel-back noti-box2">
+              
+                <p class="main-text"><a href="#">General Member</a></p>
+                <div class="text-box" >
+                <p>Total Groups - 10</p>
+                <p>Pending Approvals - 50</p>
+                </div>
+                </div>
+              </div> -->              
+            
+            <?php 
+          }
+
+          foreach ($fieldcounts1 as $key => $value) {
+
+            ?>
+            <div class="col-md-15 col-sm-6 col-xs-6">
+              <div class="panel panel-back noti-box2">
+             
+                <p class="main-text"><a href='<?= $this->url("zfcadmin/admin",array("controller"=>"master","action"=>"index$value[0]"))?>'><?= ucfirst($key)?></a> </p>
+                <div class="text-box" >
+                <p><?= $key?> - <?= $value[1]?></p>
+               
+              
+                </div>
+                </div>
+              </div>
+
+
+
+            <?php
+          }
+          
+           foreach ($Members as $key => $value) {
+
+            ?>
+            <!--<div class="col-md-15 col-sm-6 col-xs-6">
+              <div class="panel panel-back noti-box2">
+             
+                <p class="main-text"><a href='<?= $this->url("zfcadmin/admin",array("controller"=>"matrimonyuser","action"=>"$value[2]index"))?>'><?= ucfirst($key)?></a> </p>
+                <div class="text-box" >
+                <p><?= $key?> - <?= $value[0]?></p>
+                <p><?= $key?> Pending - <?= $value[1]?></p>
+                </div>
+                </div>
+              </div>-->
+              
+              
+            <?php
+          }
+          ?>
+          
+          <div class="col-md-15 col-sm-6 col-xs-6">
+               <div class="panel panel-back noti-box2">
+              
+                <p class="main-text"><a href="<?= $this->url("zfcadmin/admin",array("controller"=>"master","action"=>"indexexecutivepost"))?>">Executive Post</a></p>
+                <div class="text-box" >
+                <p>Total Post - 10</p>
+               
+                </div>
+                </div>
+              </div>
+          
+          <div class="col-md-15 col-sm-6 col-xs-6">
+               <div class="panel panel-back noti-box2">
+              
+                <p class="main-text"><a href="<?= $this->url("zfcadmin/admin",array("controller"=>"matrimonyuser","action"=>"memberuserindex"))?>">Manage Member</a></p>
+                <div class="text-box" >
+                <p> 
+				  <p> Total Members - <?= $total_members;?></p>
+                </p>
+               
+                </div>
+                </div>
+              </div>    
+              
+              
+          </div>
+         
+            
+            
+            
+            <!-- <div class="row">
+              <div class="col-md-15 col-sm-6 col-xs-6">
+              <div class="panel panel-back noti-box2">
+             
+                <p class="main-text"><a href="#">Matrimony Master</a></p>
+                <div class="text-box" >
+                <p>Members - 100</p>
+                <p>World Members - 100</p>
+                <p>India Mmebers - 10</p>
+              
+                </div>
+                </div>
+              </div>
+              
+              <div class="col-md-15 col-sm-6 col-xs-6">
+              <div class="panel panel-back noti-box2">
+             
+                <p class="main-text"><a href="#">Religion Branches</a></p>
+                <div class="text-box" >
+                <p>Total Branches - 100</p>
+                
+              
+                </div>
+                </div>
+              </div>
+              
+              
+              
+              
+              <div class="col-md-15 col-sm-6 col-xs-6" >
+               <div class="panel panel-back noti-box2">
+               
+                <p class="main-text"><a href="#"> News</a></p>
+                <div class="text-box" >
+                <p>News - 10</p>
+                <p></p>
+                </div>
+                </div>
+              </div>
+              
+              
+              
+              <div class="col-md-15 col-sm-6 col-xs-6">
+               <div class="panel panel-back noti-box2">
+             
+                <p class="main-text"><a href="#">Events</a></p>
+                <div class="text-box" >
+                <p>Events - 10</p>
+                <p></p>
+                </div>
+                </div>
+              </div>
+              
+              <div class="col-md-15 col-sm-6 col-xs-6">
+               <div class="panel panel-back noti-box2">
+              
+                <p class="main-text"><a href="#"> Post</a></p>
+                <div class="text-box" >
+                <p>Total Post - 10</p>
+                <p></p>
+                </div>
+                </div>
+              </div>              
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="row">
+              <div class="col-md-15 col-sm-6 col-xs-6">
+              <div class="panel panel-back noti-box2">
+             
+                <p class="main-text"><a href="#">User</a></p>
+                <div class="text-box" >
+                <p>user Members - 100</p>
+                <p>Pending Approvals - 10</p>
+              
+                </div>
+                </div>
+              </div>
+              
+              <div class="col-md-15 col-sm-6 col-xs-6">
+               <div class="panel panel-back noti-box2">
+             
+                <p class="main-text"><a href="#">Comments</a></p>
+                <div class="text-box" >
+                <p>Comments - 100</p>
+                <p>Pending Approvals - 10</p>
+                </div>
+                </div>
+              </div>
+              
+              <div class="col-md-15 col-sm-6 col-xs-6" >
+               <div class="panel panel-back noti-box2">
+               
+                <p class="main-text"><a href="#">Gotra</a></p>
+                <div class="text-box" >
+                <p> Total Gotra - 10</p>
+                <p></p>
+                </div>
+                </div>
+              </div>
+              
+              <div class="col-md-15 col-sm-6 col-xs-6">
+               <div class="panel panel-back noti-box2">
+             
+                <p class="main-text"><a href="#">Star Sign</a></p>
+                <div class="text-box" >
+                <p>Star Sign - 10</p>
+                <p>Pending Approvals - 50</p>
+                </div>
+                </div>
+              </div>
+              -->
+                            
+            </div>
+             
+            
+            
+            
+            
+            <!-- /.row -->
+            
+            <div class="hr hr32 hr-dotted"></div>
+            
+            <!-- /.row -->
+            
+            
+            <!-- /.row -->
+            
+            
+            
+            
+            
+            
+            <!-- PAGE CONTENT ENDS --> 
+          </div>
+          <!-- /.col --> 
+        </div>

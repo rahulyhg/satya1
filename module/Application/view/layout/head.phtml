@@ -1,0 +1,124 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<!-- Le styles -->
+<?php
+echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+        ->prependStylesheet('http://fonts.googleapis.com/css?family=Oswald:400,700,300')
+        ->prependStylesheet($this->basePath() . '/highslide/highslide.css')
+        ->prependStylesheet($this->basePath() . '/css/upddatedcss.css')
+        ->prependStylesheet($this->basePath() . '/css/jquery-ui.css')
+        ->prependStylesheet($this->basePath() . '/css/figure.css')
+        ->prependStylesheet($this->basePath() . '/css/crop-avatar.css')
+        ->prependStylesheet($this->basePath() . '/css/cropper.css')
+
+
+        //->prependStylesheet($this->basePath() . '/css/styleageranger.css')
+        ->prependStylesheet($this->basePath() . '/css/pikaday.css')  // datepicker
+        ->prependStylesheet($this->basePath() . '/css/site.css')        //datepicker
+        ->prependStylesheet($this->basePath() . '/css/theme.css')      // datepicker
+        ->prependStylesheet($this->basePath() . '/css/triangle.css')    //datepicker
+        ->prependStylesheet($this->basePath() . '/css/style.css')
+        ->prependStylesheet($this->basePath() . '/css/font-awesome.css')
+        ->prependStylesheet($this->basePath() . '/css/fonts.css')
+        ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css')
+        ->prependStylesheet($this->basePath() . '/css/blueimp-gallery.min.css')
+        ->prependStylesheet($this->basePath() . '/css/bootstrap-image-gallery.min.css')
+// ->prependStylesheet($this->basePath() . '/public/assets/css/cropper.css') 
+?>
+
+<!-- Scripts -->
+<?php
+echo $this->headScript()
+
+
+        // ->prependFile($this->basePath() . 'http://code.jquery.com/jquery-2.1.4.min.js')
+        // ->prependFile($this->basePath() . '/js/waterbubble.js')
+        // ->prependFile($this->basePath() . '/js/progresbar.js')
+        ->prependFile($this->basePath() . '/js/easypaginate.js')
+        ->prependFile($this->basePath() . '/js/jquery_006.js')
+        ->prependFile($this->basePath() . '/js/cropper.js')
+        ->prependFile($this->basePath() . '/js/crop-avatar.js')
+        ->prependFile($this->basePath() . '/highslide/highslide-with-gallery.js')
+
+        //->prependFile($this->basePath() . '/js/priceranger.js')
+        ->prependFile($this->basePath() . '/js/pikaday.js')  //datepicker
+        ->prependFile($this->basePath() . '/js/jquery.validate.min.js')
+        ->prependFile($this->basePath() . '/js/jquery.blueimp-gallery.min.js')
+        //->prependFile($this->basePath() . '/js/bootstrap-image-gallery.js')
+        ->prependFile($this->basePath() . '/js/custom.js')
+        ->prependFile($this->basePath() . '/js/jquery.zaccordion.js')
+        ->prependFile($this->basePath() . '/js/responsiveslides.min.js')
+        ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+        ->prependFile($this->basePath() . '/js/jquery.flexisel.js')
+        ->prependFile($this->basePath() . '/js/jquery-ui.js')
+        ->prependFile($this->basePath() . '/js/jquery-1.js')
+        ->prependFile($this->basePath() . '/js/matrimony_filters.js')
+        ->prependFile($this->basePath() . '/js/jquery-1.11.2.min.js')
+
+// ->prependFile($this->basePath() . '/public/assets/js/cropper.js')
+//->prependFile('http://www.eetravels.com/eetravels_hotel/element.txt')
+
+
+
+;
+?>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('ul#items').easyPaginate({
+            step: 16
+        });
+
+    });
+
+</script>
+
+<script type="text/javascript">
+    hs.graphicsDir = '<?php echo $this->basePath(); ?>/highslide/graphics/';
+    hs.align = 'center';
+    hs.transitions = ['expand', 'crossfade'];
+    hs.fadeInOut = true;
+    hs.outlineType = 'glossy-dark';
+    hs.wrapperClassName = 'dark';
+    hs.captionEval = 'this.a.title';
+    hs.numberPosition = 'caption';
+    hs.useBox = true;
+    hs.width = 600;
+    hs.height = 400;
+//hs.dimmingOpacity = 0.8;
+
+// Add the slideshow providing the controlbar and the thumbstrip
+    hs.addSlideshow({
+        //slideshowGroup: 'group1',
+        interval: 5000,
+        repeat: false,
+        useControls: true,
+        fixedControls: 'fit',
+        overlayOptions: {
+            position: 'bottom center',
+            opacity: 0.75,
+            hideOnMouseOut: true
+        },
+        thumbstrip: {
+            position: 'above',
+            mode: 'horizontal',
+            relativeTo: 'expander'
+        }
+    });
+
+// Make all images animate to the one visible thumbnail
+    var miniGalleryOptions1 = {
+        thumbnailId: 'thumb1'
+    }
+</script>
+
+<style>		
+    .dropdown-menu > li > a{
+        color:#fff;
+    } 
+    .dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus{color:#fff;text-decoration:none;background-color:#333;}
+    .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus{background-color:#333;}
+    .col-sm-9 label{font-weight:bold !important;}
+    p{text-align:justify;}
+</style>

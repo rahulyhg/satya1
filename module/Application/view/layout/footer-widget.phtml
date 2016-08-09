@@ -1,0 +1,138 @@
+<?php 
+$PopPosts = $this->MyHelper()->PopPosts('PostTable');
+
+$JustBorn = $this->MyHelper()->PostCat(1);
+
+$Obituary = $this->MyHelper()->PostCat(2);
+
+$CurrNews = $this->MyHelper()->CurrNews();
+
+// echo "<pre>";
+// print_r($CurrNews);
+?>
+<div class="col-sm-3">
+<h2>Current News</h2>
+<ul>
+	<?php 
+	foreach ($CurrNews as $value) {
+	?>
+<li>
+<h4><?=$value['title']?></h4>
+<!-- <span class="admin"><span class="glyphicon glyphicon-user"></span>Admin</span> -->
+<span class="date"><span class="glyphicon glyphicon-calendar"></span><?=date("l d,Y",strtotime($value['created_date']))?></span>
+<p><?=substr($value['description'],0,100)?> ...</p>
+</li>
+<?php 
+}
+?>
+ 
+</ul>
+<a href="<?php echo $this->basePath()?>/news" class="btn btn-info">read more...</a>
+</div>
+
+
+<div class="col-sm-3">
+<h2>Popular Posts</h2>
+<ul>
+<?php 
+foreach ($PopPosts as $key => $value) {
+    
+
+$imgpath = (empty($value['image']))?"'images/onside.jpg'":"PostsImages/".$value['image'];
+
+$date = date("d-m-y",strtotime($value['created_date']));
+?>
+<li>
+<h4><?=$value['title']?></h4>
+<img src="<?php echo $this->basePath().$imgpath ?>" class="pull-left thumbnail footerthumb" />
+<span class="date"><span class="glyphicon glyphicon-calendar"></span><?=$date?></span>
+<p><?=$value['description']?></p>
+</li>
+<?php 
+}
+?>
+</ul>
+<a href="<?php echo $this->basePath()?>/posts" class="btn btn-info">read more...</a>
+</div>
+
+
+<div class="col-sm-3">
+<div class="footer-panel">
+<h3>Obituary</h3>
+<?php 
+$imgpath = (empty($Obituary['image']))?"'images/onside.jpg'":$Obituary['image'];
+
+?>
+<div class="pull-left thumbnail"><img src="<?php echo $this->basePath().$imgpath ?>"  class="no-border footerthumb" /></div>
+<p class="lead"><?=substr($Obituary['title'],0,20);?></p>
+ 
+<p class="txt"><?=substr($Obituary['description'],0,50);?></p>
+<div class="clearfix"></div>
+<div class="status">
+<span>Sender: <?=$Obituary['full_name']?></span>
+<span>Date: <?=date("l d,Y",strtotime($Obituary['created_date']));?></span>
+<span>Comments: <?=$Obituary['comments']?></span>
+<span>Visits: <?=$Obituary['views']?></span>
+</div>
+ <?php 
+if(count($Obituary['CommentDesc'])>0){
+foreach ($Obituary['CommentDesc'] as $value) {
+	// echo $value['profile_photo']."<br>";
+$senderimg = (empty($value['profile_photo']))?"'images/onside.jpg'":$value['profile_photo'];
+
+//$simg = $this->basepath().$senderimg;
+?>
+<!-- <div class="pull-left thumbnail"></div> -->
+<p class="text12"><img src="<?php echo $this->basepath('PostsImages/'.$senderimg)?>" class="senderimg" /> <?=substr($value['sender_name'],0,20)?> : <?=substr($value['comment_desc'],0,50)?></p>
+
+<?php 
+	}
+}
+else echo "<p class='txt'> <a href='".$this->basePath()."/pages/postview/".$Obituary['id']."'>Be the first one to comment </a></p>";
+ ?>
+<a href="<?php echo $this->basePath()?>/pages/postcat/2" class="btn btn-info">more.</a>
+<div class="clearfix"></div>
+</div>
+</div>
+
+
+
+<div class="col-sm-3">
+<div class="footer-panel">
+<h3>Just Born</h3>
+<?php 
+$imgpath = (empty($JustBorn['image']))?"'images/onside.jpg'":$JustBorn['image'];
+
+?>
+<div class="pull-left thumbnail"><img src="<?php echo $this->basePath().$imgpath ?>" class="no-border footerthumb" /></div>
+<p class="lead"><?=substr($JustBorn['title'],0,20);?></p>
+<p class="txt"><?=substr($JustBorn['description'],0,50);?></p>
+<p class="txt"><a href="<?php echo $this->basePath()?>/pages/postview/<?=$JustBorn['id']?>">Read More..</a></p>
+<div class="clearfix"></div>
+<div class="status">
+<!-- <span>Likes: 75</span> -->
+<span>Sender: <?=$JustBorn['full_name']?></span>
+<span>Date: <?=date("l d,Y",strtotime($JustBorn['created_date']));?></span>
+<span>Comments: <?=$JustBorn['comments']?></span>
+<span>Visits: <?=$JustBorn['views']?></span>
+</div>
+<?php if(count($JustBorn['CommentDesc'])>0){
+foreach ($JustBorn['CommentDesc'] as $value) {
+	// echo $value['profile_photo']."<br>";
+$senderimg = (empty($value['profile_photo']))?"'images/onside.jpg'":$value['profile_photo'];
+
+$simg = $this->basepath().$senderimg;
+?>
+<!-- <div class="pull-left thumbnail"></div> -->
+<p class="text12"><img src="<?=$simg ?>" class="senderimg" /> <?=substr($value['sender_name'],0,20)?> : <?=substr($value['comment_desc'],0,50)?></p>
+
+<?php 
+	}
+}
+else echo "<span> <a href='".$this->basePath()."'/pages/postview/'".$JustBorn['id']."'Be the first one to comment </a></span>";
+?>
+<a href="<?php echo $this->basePath()?>/pages/postcat/1" class="btn btn-info">more.</a>
+<div class="clearfix"></div>
+</div>
+</div>
+

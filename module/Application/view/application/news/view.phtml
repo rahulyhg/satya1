@@ -1,0 +1,94 @@
+<div class="col-sm-3 col-sm-3-new width20per">
+<?php echo $this->partial('layout/sidebar-news') ?>
+</div>
+<div id="newsContainer"> 
+<div class="col-sm-9 width80per">
+<?php 
+$imgpath = (empty($news->image_path))?"/images/new-big.jpg":$news->image_path;
+
+?>
+<h2 class="heading">Latest News</h2>
+<div class="newsfull">
+<img src="<?php echo $this->basePath().$imgpath ?>" class=" img-responsive pull-left" />
+<h3><?=$news->title?></h3>
+<p><?=$news->description?></p>
+
+<div class="status">
+<ul>
+<li>Posted By : <?=$news->username?></li>
+<li>Posted Date : <?=date("l d-Y",strtotime($news->created_date));?></li>
+<!-- <li id="flip">Add Comment</li>
+<li><a href="#">Share</a></li> -->
+</ul>
+</div>
+
+<!-- <div id="panel">
+<div class="form-group">
+<textarea id="commentBodyField" class="form-control" onkeypress="BLOG_CMT_onCommentBodyChange()" cols="50" rows="4" name="commentBody" placeholder="Enter your comment..."></textarea>
+</div>
+<div class="form-group row">
+<label class="col-sm-2 form-control-label lblline">Comment As</label>
+
+<div class="col-sm-3">
+<select class="form-control">
+	<option>Google Account</option>
+    <option>Select Profile</option>
+</select>
+</div>
+</div>
+
+<div class="form-group row">
+
+<div class="col-sm-6">
+
+
+<input id="postCommentSubmit" type="button" class="btn btn-info" value="Publish"  name="postCommentSubmit">
+<input id="postCommentPreview" type="button" class="btn btn-info" value="Preview" name="postCommentPreview">
+
+</div>
+</div>
+</div>
+<div class="clearfix"></div>
+<div class="related">
+
+<div class="col-md-12 news col-xs-12">
+<div class="col-md-2 col-sm-2 col-xs-3">
+<div class="related-img"><img src="<?php echo $this->basePath('images/related-img.jpg') ?>" /></div>
+</div>
+<div class="col-md-10 col-sm-10 col-xs-9 content">
+<h4>Vijay </h4>
+<p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five ce</p>
+
+</div>
+</div>
+
+<div class="col-md-12 news col-xs-12">
+<div class="col-md-2 col-sm-2 col-xs-3">
+<div class="related-img"><img src="<?php echo $this->basePath('images/related-img.jpg') ?>" /></div>
+</div>
+<div class="col-md-10 col-sm-10 col-xs-9 content">
+<h4>Vijay </h4>
+<p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five ce</p>
+
+</div>
+</div>
+
+<div class="col-md-12 news col-xs-12">
+<div class="col-md-2 col-sm-2 col-xs-3">
+<div class="related-img"><img src="<?php echo $this->basePath('images/related-img.jpg') ?>" /></div>
+</div>
+<div class="col-md-10 col-sm-10 col-xs-9 content">
+<h4>Vijay </h4>
+<p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five ce</p>
+
+</div>
+</div>
+
+</div> -->
+
+
+<div class="clearfix"></div>
+</div>
+</div>
+</div>
+  

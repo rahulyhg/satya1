@@ -1,0 +1,303 @@
+<div class="col-sm-3 col-sm-3-new width20per">
+<?php echo $this->partial('layout/sidebar') ?>
+</div>
+
+<div class="col-sm-9 width80per">
+    <div class="row" id="validateformbox">
+      <div class="col-sm-8" style="margin-left:20px;">
+        <h3><?php echo $this->translate('Create Your Account') ?></h3>	
+		
+       <?php
+			$form = $this->form;
+			$form->prepare();
+			$form->setAttribute("id","signupform");
+			$form->setAttribute("autocomplete","off");
+			echo $this->form()->openTag($form);
+			?>
+			<div class="form-group row">
+		<label for="UserName" class="col-sm-4 form-control-label singnuplbl"><?php echo $this->translate('UserName') ?></label>
+		<div class="col-sm-6 singnupdiv">
+		<?php  echo $this->formRow($form->get('username'));?>
+		<span class="showerror"></span>
+		</div>
+		</div>
+		
+		<div class="form-group row">
+		<label for="password" class="col-sm-4 form-control-label singnuplbl"><?php echo $this->translate('Password') ?></label>
+		<div class="col-sm-6 singnupdiv">
+		<?php  echo $this->formRow($form->get('password'));?>
+		</div>
+		</div>
+		
+		<div class="form-group row">
+		<label for="Email" class="col-sm-4 form-control-label singnuplbl"><?php echo $this->translate('Email') ?></label>
+		<div class="col-sm-6 singnupdiv">
+		<?php  echo $this->formRow($form->get('email'));?>
+		<span class="showerror"></span>
+		</div>
+		</div>
+		
+		<div class="form-group row">
+		<label for="Mobile Number" class="col-sm-4 form-control-label singnuplbl"><?php echo $this->translate('Mobile Number') ?></label>
+		<div class="col-sm-6 singnupdiv">
+		<?php  echo $this->formRow($form->get('mobile_no'));?>
+		<span class="showerror"></span>
+		
+		</div>
+		</div>
+		<div class="form-group row">
+		<label for="User Type" class="col-sm-4 form-control-label singnuplbl"><?php echo $this->translate('User Type') ?></label>
+		<div class="col-sm-6" style="margin:5px 0;">
+		<?php 
+			echo $this->formHidden($form->get('id'));
+			echo $this->formRow($form->get('user_type_id'));?>
+		</div>
+		</div>	
+		
+		
+		<div class="form-group row">
+			<label for="Full Name" class="col-sm-4 form-control-labeln form-control-label  singnuplbl" ><?php echo $this->translate('Full Name') ?></label>
+			<div class=" col-sm-2nnnn col-sm-2 singnupdiv">
+					<?php echo $this->formRow($form->get('name_title_user'));?>
+				</div>
+			
+			<div class="col-sm-4 col-sm-4n singnupdiv">
+				
+				<?php  echo $this->formRow($form->get('full_name'));?>
+				
+			</div>
+		</div>
+		
+		<div class="form-group row">
+		<label for="Father`s Name" 
+        class="col-sm-4 form-control-labeln form-control-label singnuplbl"><?php echo $this->translate('Father`s Name') ?></label>
+			<div class=" col-sm-2nnnn col-sm-2 singnupdiv">
+				<?php echo $this->formRow($form->get('name_title_father'));?>
+			</div>
+			<div class="col-sm-4 col-sm-4n singnupdiv">
+			<?php echo $this->formRow($form->get('father_name'));?>
+			</div>
+		</div>
+		
+		<div class="form-group row">
+		<label for="Father`s Name" class="col-sm-4 form-control-label singnuplbl"><?php echo $this->translate('Gender') ?></label>
+		<div class="col-sm-6 singnupdiv">
+		<?php echo $this->formRow($form->get('gender'));?>
+		</div>
+		</div>
+		
+		<div class="form-group row">
+		<label for="Address" class="col-sm-4 form-control-label singnuplbl"><?php echo $this->translate('Address') ?></label>
+		<div class="col-sm-6 singnupdiv">
+		<?php  echo $this->formRow($form->get('address'));?>
+		</div>
+		</div>
+		
+		<div class="form-group row">
+		<label for="Country" class="col-sm-4 form-control-label singnuplbl"><?php echo $this->translate('Country') ?></label>
+		<div class="col-sm-6 singnupdiv">
+		<?php  echo $this->formRow($form->get('country'));?>
+		</div>
+		</div>
+		<img src="<?php echo $this->basePath()?>/img/loadingmap.gif" id="Loading_Request" style="position:absolute;display:none;z-index: 9;margin-left: 49%;width: 65px;"/>
+		<div class="form-group row">
+		<label for="State" class="col-sm-4 form-control-label singnuplbl"><?php echo $this->translate('State') ?></label>		
+		<div class="col-sm-6 singnupdiv">
+		<?php  echo $this->formRow($form->get('state'));?>
+		</div>
+		</div>
+		
+		<div class="form-group row">
+		<label for="city" class="col-sm-4 form-control-label singnuplbl"><?php echo $this->translate('City') ?></label>
+		<div class="col-sm-6 singnupdiv">
+		<?php  echo $this->formRow($form->get('city'));?>
+		</div>
+		</div>
+		
+		<div class="form-group row">
+		<label for="rustagi_branch" class="col-sm-4 form-control-label singnuplbl"><?php echo $this->translate('Sabha/Community') ?></label>
+		<div class="col-sm-6 singnupdiv">
+		<?php  echo $this->formRow($form->get('rustagi_branch'));?><br>
+		<?php  echo $this->formRow($form->get('rustagi_branch_other'));?>
+		</div>
+		</div>
+		
+		 
+		
+		<div class="form-group row">
+		<label for="Profession" class="col-sm-4 form-control-label singnuplbl"><?php echo $this->translate('Profession') ?></label>
+		<div class="col-sm-6 singnupdiv">
+		<?php   echo $this->formRow($form->get('profession'));?><br>
+		<?php   echo $this->formRow($form->get('profession_other'));?>
+		</div>
+		</div>
+		
+		<div class="form-group row">
+		<label for="Native Place" class="col-sm-4 form-control-label singnuplbl"><?php  echo $this->translate('Native Place') ?></label>
+		<div class="col-sm-6 singnupdiv">
+		<?php   echo $this->formRow($form->get('native_place'));?>
+		</div>
+		</div>
+		
+		<div class="form-group row">
+		<label for="Gothra" class="col-sm-4 form-control-label singnuplbl"><?php  echo $this->translate('Gothra') ?></label>
+		<div class="col-sm-6 singnupdiv">
+		<?php   echo $this->formRow($form->get('gothra_gothram'));?><br>
+		<?php   echo $this->formRow($form->get('gothra_gothram_other'));?>
+		</div>
+		</div>
+		
+		<div class="form-group row">
+		<div class="col-sm-8 singnupdiv">
+		<input type="checkbox" id="checkbox">	<?php echo $this->translate('I agree to the Privacy Policy and T&C.') ?>
+		</div>
+		</div>
+		
+		<div class="form-group row">
+		<div class="col-sm-8 singnupdiv">
+		<?php  echo $this->formRow($form->get('submit'));?>
+		</div>
+		</div>
+
+         <?php echo $this->form()->closeTag(); ?>
+		 
+      </div>
+      <!--<div class="col-sm-4">
+        <h3>Recommended</h3>
+        <ul>
+          <li><a href="#">Access booking history with upcoming trips</a></li>
+          <li><a href="#">Print tickets and invoices</a></li>
+          <li><a href="#">Make checkouts simpler</a></li>
+          <li><a href="#">Enter your contact details only once</a></li>
+          <li><a href="#">Get alerts for low fares</a></li>
+        </ul>
+      </div>-->
+    </div>
+</div>
+<script>
+
+$(document).ready(function(){
+	$("#rustagi_branch_other").hide();
+	$("#profession_other").hide();
+	$("#gothra_gothram_other").hide();
+})
+/**************Get State on select Country***************/
+$("#country").on('change', function(){
+	var countryId=this.value;
+	$.ajax({
+		url:'<?php echo $this->basePath()?>'+'/user/getStateName',
+		type:"POST",
+	    dataType:"json",
+		data:{Country_ID:countryId},
+		beforeSend: function(){
+			$('#Loading_Request').show();
+		},
+		complete: function(){
+			$('#Loading_Request').hide();
+		},
+		success:function(resp){
+							if(resp.Status=='Success'){
+								$("#state").empty();
+								$("#city").empty();
+								$("#state").append("<option value=''>Select State</option>");
+								 $.each(resp.statelist, function(idx, obj) {                            
+									$("#state").append("<option value='"+obj["id"]+"'>"+obj["state_name"]+"</option>");
+								});
+							}else{
+								$("#state").empty();
+								$("#city").empty();
+								alert("No States are available");
+							}
+		},
+		error:function(error){
+			console.log(error);	
+			alert(error);			
+		}
+	});	
+});
+/*******************End******************/
+/*************Get City on Select State*************************************************/
+$("#state").on('change', function(){
+	var stateId=this.value;
+	$.ajax({
+		url:'<?php echo $this->basePath()?>'+'/user/getCityName',
+		type:"POST",
+	    dataType:"json",
+		data:{State_ID:stateId},
+		beforeSend: function(){
+			$('#Loading_Request').show();
+		},
+		complete: function(){
+			$('#Loading_Request').hide();
+		},
+		success:function(resp){
+							if(resp.Status=='Success'){
+								$("#city").empty();
+								$("#city").append("<option value=''>Select City</option>");
+								 $.each(resp.statelist, function(idx, obj) {                            
+									$("#city").append("<option value='"+obj["id"]+"'>"+obj["city_name"]+"</option>");
+								});
+							}else{
+								$("#city").empty();
+								alert("No Cities are Available");
+							}
+		},
+		error:function(error){
+			console.log(error);	
+			alert(error);			
+		}
+	});	
+});
+/*******************End******************/
+/*************Get Branch on Select City*************************************************/
+$("#city").on('change', function(){
+	var cityId=this.value;
+	$.ajax({
+		url:'<?php echo $this->basePath()?>'+'/user/getRustagiBranch',
+		type:"POST",
+	    dataType:"json",
+		data:{City_ID:cityId},
+		beforeSend: function(){
+			$('#Loading_Request').show();
+		},
+		complete: function(){
+			$('#Loading_Request').hide();
+		},
+		success:function(resp){
+									$("#rustagi_branch_other").hide();
+
+							if(resp.Status=='Success'){
+								$("#rustagi_branch").empty();
+								$("#rustagi_branch").append("<option value=''>Select Branch</option>");
+								 $.each(resp.statelist, function(idx, obj) {                            
+									$("#rustagi_branch").append("<option value='"+obj["branch_id"]+"'>"+obj["branch_name"]+"</option>");
+								});
+							}else{
+								$("#rustagi_branch").empty();
+								alert("No Branches are Available");
+									$("#rustagi_branch_other").show();
+							}
+							$("#rustagi_branch").append("<option value='1'>Others</option>");
+		},
+		error:function(error){
+			console.log(error);	
+			alert(error);			
+		}
+	});	
+});
+/*******************End******************/
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

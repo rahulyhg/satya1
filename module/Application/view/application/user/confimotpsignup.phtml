@@ -1,0 +1,17 @@
+<div class="col-sm-3 col-sm-3-new width20per">
+<?php echo $this->partial('layout/sidebar') ?>
+</div>
+<div class="col-sm-9" align="center" style="padding-top:100px;">
+
+<div class="col-sm-4" style="border:1px solid #ccc; padding-bottom:10px; padding-top:10px; float:none;">
+<form method="post" action="#" id="formotp1" onsubmit="return confirmotp(this.id,'<?= $this->serverUrl().$this->url('application/default',array('controller'=>'user','action'=>'confirmotp'));
+                        ?>',confirmotpresults,1);">
+												<h2>Enter otp</h2>
+                                                 <input required type="number" name="otp" class="form-control">
+												<input type="hidden" name="time" value="<?=$data['time']?>">
+												<input type="hidden" name="code" value="<?=$data['code']?>">
+												<input type="hidden" name="number" value="<?=$data['number']?>"><br />
+												<input type="submit" value="submit" class="btn btn-default" name="sendotp">
+											</form>	
+                                            </div>
+                                            </div>

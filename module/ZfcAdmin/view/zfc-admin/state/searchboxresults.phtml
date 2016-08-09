@@ -1,0 +1,24 @@
+<table  width="100%" style="border:none !important;">
+<tbody>
+<?php
+if(count($results)>0){
+	$i=1;
+ foreach ($results as $result) {
+?>
+
+
+<tr>
+<td>
+<a href="javascript:void(0);" id="countrysearch<?=$i;?>" 
+onclick="passvalues('<?=$result->state_name?>','<?=$result->id?>');">
+<?= $result->state_name?></a>
+</td>
+</tr>
+<?php
+$i++;
+}
+}
+else echo "<p>No matched search</p>";
+?>
+</tbody>
+</table>

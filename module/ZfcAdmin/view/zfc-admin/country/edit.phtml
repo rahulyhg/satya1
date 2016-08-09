@@ -1,0 +1,102 @@
+ 
+            <?php 
+
+                $form=$this->form; 
+                $form->prepare();
+
+
+        $form->setAttribute('action',$this->url('zfcadmin/admin',array('controller'=>'Country','action'=>'edit','id'=>$id)));
+        $form->setAttribute('method','post');
+        $form->setAttribute('name','editform');
+        $form->setAttribute('autocomplete','off');
+        $form->setAttribute('id','CountryForm');
+        $action = $this->serverUrl().$this->url('zfcadmin/admin',array('controller'=>'Country','action'=>'edit','id'=>$id));
+        $form->setAttribute('onSubmit',"return SubmitFormAction($(this).attr('id'),'".$action."',addformResp)");
+
+        echo $this->form()->openTag($form);
+// echo $this->formCollection($form);
+                ?>
+            
+            <div class="tab-pane fade active in" id="driver_tab">
+              <div class="container col-sm-col-sm-offset-1" style="margin: 10px auto 0px !important;padding: 0 10px;">
+                
+                <div class="row" style="position:relative;z-index:1;">
+                                                <div class="form-group clearfix margintopbottom20">
+                          						 <label id="flight_nos" class="col-sm-2 control-label labelalign ">
+                            <?= $this->translate($form->get('country_name')->getLabel()) ?>
+                           </label>
+                                                  <div class="col-sm-2" id="editparent">
+                                                     <?php 
+                                                     echo $this->formHidden($form->get('id'));
+                                                     echo $this->formElement($form->get('country_name'));
+                                                     ?> 
+                                                     <span class="showerror"></span>   
+                                                     <div class="col-sm-3 searchboxresults" id="searchresults" style="position: absolute;
+  overflow-y:scroll;
+  background:#FFF;
+  width:93%;
+  height:auto;
+  z-index: 9999;display:none;">
+                                                     </div>                                
+                                                  </div>
+                                                  
+													<label id="flight_nos" class="col-sm-2 control-label labelalign ">
+                            <?= $this->translate($form->get('country_code')->getLabel()) ?>
+                           </label>
+                                                  <div class="col-sm-1">
+                                                     <?php 
+                                                      
+                                                     echo $this->formElement($form->get('country_code'));
+                                                     ?>  
+                                                     <span class="showerror"></span>                                   
+
+                                                  </div>
+                                                 
+                          						 <label id="flight_nos" class="col-sm-1 control-label labelalign ">
+                            <?= $this->translate($form->get('dial_code')->getLabel()) ?>
+                           </label>
+                                                  <div class="col-sm-1">
+                                                     <?php 
+                                                     echo $this->formHidden($form->get('master_country_id'));
+                                                     echo $this->formElement($form->get('dial_code'));
+                                                     ?>  
+                                                     <span class="showerror"></span>                                   
+
+                                                  </div>
+                                                  
+                                                    <div class="col-sm-1 pull-left">
+                                                     <?php 
+                                                     echo $this->formRow($form->get('submit'));
+                                                     ?>                                    
+                                                  </div>
+                                                  <div class="col-sm-1 pull-left">
+                                                       <a class="btn btn-red defaultbtnsearch searchBooking" href="javascript:void(0);" onclick="location.reload();">Cancel</a>                              
+                                                  </div>
+                                                  
+                                                  
+                                                 </div>
+                                             </div>
+                                             <div class="row">
+                                                <div class="form-group clearfix margintopbottom20">
+                          					
+                                                 
+                           <!-- <label id="flight_nos" class="col-sm-2 control-label labelalign ">
+                            <?= $this->translate($form->get('IsActive')->getLabel()) ?>
+                           </label>
+                                                  <div class="col-sm-3">
+                                                     <?php 
+                                                     echo $this->formElement($form->get('IsActive'));
+                                                     ?> 
+                                                     <span class="showerror"></span>                                   
+                                                                                        
+                                                  </div>-->
+                                                 </div>
+                                             </div>
+                                             
+              </div>
+            </div>
+            <?php   
+echo $this->form()->closeTag();
+
+        ?>
+           

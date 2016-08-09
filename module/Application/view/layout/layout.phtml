@@ -1,0 +1,148 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle(' '. $this->translate('Welcome to Rustagi Samaj'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+
+	<?php include('head.phtml');?>
+
+    </head>
+<body>
+<!--Header Start-->
+<!--<div class="ad-banner">
+<div class="banner-left"><img src="images/rastogi-sabha-trust.jpg" /></div>
+<div class="banner-right"><img src="<?php echo $this->basePath('images/rastogi-sabha-trust.jpg') ?>" width="140" /></div>
+</div>-->
+
+
+<header>
+<div class="container">
+<?php include('header.phtml');?>
+<div class="clearfix"></div>
+
+<nav class="navbar navbar-default">
+<?php include('menu.phtml');?>
+</nav>
+<div class="clearfix"></div>
+
+
+<div class="slider-home">
+<?php include('slider.phtml');?>
+</div>
+
+<div class="clearfix"></div>
+</div>
+
+</header>
+<!--Header End-->
+
+
+
+<!--Container Start-->
+<div class="container orange-panelbg">
+<?php echo $this->content; ?>
+</div>
+<!--Container End-->
+<!--Footer Start-->
+<footer>
+<div class="container">
+<?php include('footer-widget.phtml'); ?>
+</div>
+
+<div class="clearfix">&nbsp;</div>
+
+<div class="copyright">
+<div class="container">
+<?php include('footer.phtml'); ?>
+</div>
+</div>
+</footer>
+<!--Footer End-->
+
+<script type="text/javascript">
+$('.popover-markup>.trigger').popover({
+    html: true,
+    title: function () {
+        return $(this).parent().find('.head').html();
+    },
+    content: function () {
+        return $(this).parent().find('.content').html();
+    }
+});
+
+$('.collapse').on('shown.bs.collapse', function(){
+$(this).parent().find(".glyphicon-plus").removeClass("glyphicon-plus").addClass("glyphicon-minus");
+}).on('hidden.bs.collapse', function(){
+$(this).parent().find(".glyphicon-minus").removeClass("glyphicon-minus").addClass("glyphicon-plus");
+});
+
+$(document).ready(function() {
+    $('#list').click(function(event){
+    	event.preventDefault();
+    	$('#profile .commen-list').addClass('list-view');
+    	$('#profile1 .commen-list').addClass('list-view');
+    });
+    $('#grid').click(function(event){
+    	event.preventDefault();
+    	$('#profile .commen-list').removeClass('list-view');
+    	$('#profile1 .commen-list').removeClass('list-view');
+	$('#profile .commen-list').addClass('grid-view');
+	$('#profile1 .commen-list').addClass('grid-view');
+	});
+});
+
+
+
+$(function() {
+		$( "#slider-range" ).slider({
+			range: true,
+			min: 0,
+			max: 100,
+			values: [ 22, 50 ],
+			slide: function( event, ui ) {
+				$( "#amount" ).val( "" + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+			}
+		});
+		$( "#amount" ).val( "" + $( "#slider-range" ).slider( "values", 0 ) +
+			" - " + $( "#slider-range" ).slider( "values", 1 ) );
+	});
+	
+	
+	$(function() {
+		$( "#slider-range1" ).slider({
+			range: true,
+			min: 0,
+			max: 1000000,
+			values: [ 0, 200000 ],
+			slide: function( event, ui ) {
+				$( "#amount1" ).val( "Rs" + ui.values[ 0 ] + " - Rs" + ui.values[ 1 ] );
+			}
+		});
+		$( "#amount1" ).val( "Rs" + $( "#slider-range1" ).slider( "values", 0 ) +
+			" - Rs" + $( "#slider-range1" ).slider( "values", 1 ) );
+	});
+	
+	
+	function googleTranslateElementInit() {
+         new google.translate.TranslateElement({
+             pageLanguage: 'en',
+             includedLanguages: 'en,hi',
+             autoDisplay: false,
+             layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+         }, 'google_translate_element');
+     }
+
+
+
+ 
+</script>
+        <?php echo $this->inlineScript() ?>
+       
+    </body>
+</html>

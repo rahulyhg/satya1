@@ -1,0 +1,70 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle('ZfcAdmin - Zend Framework 2 Admin Interface')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php
+        echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0')
+                ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+
+        <?php
+        echo $this->headLink()
+                ->prependStylesheet('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
+                ->prependStylesheet($this->basePath() . '/css/admin/bootstrap.min.css')
+                ->prependStylesheet($this->basePath() . '/css/admin/font-awesome/4.2.0/css/font-awesome.min.css')
+                ->prependStylesheet($this->basePath() . '/css/admin/fonts/fonts.googleapis.com.css')
+                ->prependStylesheet($this->basePath() . '/css/admin/css/ace.min.css')
+                ->prependStylesheet($this->basePath() . '/css/admin/css/ace-rtl.min.css')
+        ?>
+
+
+        <?php
+        echo $this->headScript()
+                ->prependFile('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
+                ->prependFile('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+                ->prependFile('https://oss.maxcdn.com/respond/1.4.2/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+                ->prependFile('https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+                ->prependFile('/js/jquery.validate.min.js')
+                ->prependFile('/js/jquery.validate.js')
+                ->prependFile('https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js')
+                ->prependFile('http://ajax.microsoft.com/ajax/jQuery.Validate/1.6/jQuery.Validate.min.js')
+                ->prependFile('/assets/js/custom.js')
+        ?>
+
+
+    </head>
+
+    <body style="padding-top: 70px;" class="login-layout">
+
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!--<a class="navbar-brand" href="<?php echo $this->url('zfcadmin') ?>">ZfcAdmin</a>-->
+                </div>
+
+            </div>
+        </nav>
+
+        <div class="container">
+
+            <?php echo $this->content; ?>
+
+            <hr>
+
+            <footer>
+             <!-- <p>&copy; 2005 - <?php echo date('Y') ?> by Zend Technologies Ltd. All rights reserved.</p> -->
+            </footer>
+
+        </div> <!-- /container -->
+
+        <?php echo $this->inlineScript(); ?>
+    </body>
+</html>
